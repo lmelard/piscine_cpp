@@ -1,4 +1,4 @@
-NAME		= megaphone
+NAME		= phonebook
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
@@ -10,7 +10,8 @@ NAME		= megaphone
 # CPPC		compiler
 # CPPFLAGS	compiler flags
 
-SRCS		= ./Megaphone.cpp \
+SRCS		= ./Contact.cpp \
+			./PhoneBook.cpp \
 
 OBJS		= ${SRCS:.cpp=.o}
 
