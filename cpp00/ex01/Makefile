@@ -10,8 +10,9 @@ NAME		= phonebook
 # CPPC		compiler
 # CPPFLAGS	compiler flags
 
-SRCS		= ./Contact.cpp \
+SRCS		= ./main.cpp \
 			./PhoneBook.cpp \
+			./Contact.cpp \
 
 OBJS		= ${SRCS:.cpp=.o}
 

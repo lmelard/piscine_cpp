@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 12:17:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/03 17:43:53 by lmelard          ###   ########.fr       */
+/*   Created: 2023/01/03 17:07:59 by lmelard           #+#    #+#             */
+/*   Updated: 2023/01/03 17:46:06 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-#include "Contact.hpp"
-#include <iostream>
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-PhoneBook::PhoneBook(void) 
+# include <iostream>
+
+class Contact
 {
-	std::cout << "Constructor PhoneBook called" <<std::endl;
-	return;
-}
+	public:
+		Contact(void);
+		~Contact(void);
 
-PhoneBook::~PhoneBook(void)
-{
-	std::cout << "Destructor PhoneBook called" <<std::endl;
-	return;
-}
+	private:
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		std::string	_phone_number;
+};
 
-// void	PhoneBook::setContact(Contact *contact)
-// {
-// 	(void)contact;
-// 	return;
-// }
+#endif
