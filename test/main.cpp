@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 20:15:17 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/04 16:05:31 by lmelard          ###   ########.fr       */
+/*   Created: 2023/01/04 15:47:53 by lmelard           #+#    #+#             */
+/*   Updated: 2023/01/04 15:47:59 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
-# include "Contact.hpp"
-# include <iostream>
+#include <iostream>
+#include <csignal>
 
-class	PhoneBook
-{
-	public:
-		PhoneBook(void);
-		~PhoneBook(void);
-		
-		int		setContact(int	index);
-		Contact	getContact(int index) const;
-		void	printContacts(void);
-		
-	private:
-		Contact	_contact[8];
-};
+void terminate_handler() {
+  std::cout << "Terminating program." << std::endl;
+  std::exit(0);
+}
 
-#endif
+int main() {
+  std::set_terminate(terminate_handler);
+
+  std::string s;
+  while (true) {
+    std::cout << "Enter a string: ";
+    std::cin >> s;
+    std::cout << "You entered: " << s << std::endl;
+  }
+  return 0;
+}
