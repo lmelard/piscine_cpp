@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:17:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/05 15:10:00 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/05 17:16:21 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <limits>
 
 PhoneBook::PhoneBook(void) 
 {
@@ -45,22 +46,36 @@ Contact	PhoneBook::getContact(int index) const
 	return (this->_contact[index]);
 }
 
-void	PhoneBook::printContacts(void)
+void	PhoneBook::printContacts(void) const
 {
-	Contact	contact;
-	size_t	i;
+	Contact			contact;
+	size_t			i = 0;
 
-	std::cout << std::endl << "select your contact index: ";
-	std::cin >> i;
-	contact = this->_contact[i - 1];
-	std::cout << "index: " << i << std::endl;
-	std::cout << "first name: " << contact.getFirstName() << std::endl;
-	std::cout << "last name: " << contact.getLastName() << std::endl;
-	std::cout << "nickname: " << contact.getNickname() << std::endl;
-	std::cout << "darkest secret: " <<contact.getDarkestSecret() << std::endl;
+	while (1)
+	{
+		std::cout << std::endl << "select your contact index: ";
+		std::cin >> i;
+		if (std::cin.fail() || i <= 0 || i > this->countContacts())
+		{
+			std::cout << "invalid input, the index must be a digit between 1 and " << this->countContacts();
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else
+		{
+			contact = this->_contact[i - 1];
+			std::cout << "index: " << i << std::endl;
+			std::cout << "first name: " << contact.getFirstName() << std::endl;
+			std::cout << "last name: " << contact.getLastName() << std::endl;
+			std::cout << "nickname: " << contact.getNickname() << std::endl;
+			std::cout << "darkest secret: " << contact.getDarkestSecret() << std::endl;
+			return ;
+		}
+	}
+	return ;
 }
 
-void	PhoneBook::printTab(void)
+void	PhoneBook::printTab(void) const
 {
 	Contact	contact;
 	std::string	output;
@@ -86,4 +101,12 @@ void	PhoneBook::printTab(void)
 		std::cout << std::setw(10) << std::right << output << std::endl;
 	}
 	return;
+}
+
+size_t	PhoneBook::countContacts(void) const
+{
+	size_t	i = 0;
+	while (this->_contact[i].getFirstName() != "")
+		i++;
+	return (i);
 }
