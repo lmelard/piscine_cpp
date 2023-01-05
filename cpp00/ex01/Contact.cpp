@@ -6,13 +6,14 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:09:46 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/05 14:54:53 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/05 18:11:02 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <limits>
 
 Contact::Contact(void)
 {
@@ -29,39 +30,6 @@ Contact::~Contact(void)
 {
 //	std::cout << "Destructor Contact called" << std::endl;
 	return;
-}
-
-int	Contact::setContact(void)
-{
-	std::string	input;
-
-	std::cout << "enter first name: ";
-	std::cin >> input;
-	if (std::cin.eof())
-		return (1);
-	this->_first_name = input;
-	std::cout << "enter last name: ";
-	std::cin >> input;
-	if (std::cin.eof())
-		return (1);
-	this->_last_name = input;
-	std::cout << "enter nickname: ";
-	std::cin >> input;
-	if (std::cin.eof())
-		return (1);
-	this->_nickname = input;
-	std::cout << "enter phone number: ";
-	std::cin >> input;
-	if (std::cin.eof())
-		return (1);
-	this->_phone_number = input;
-	std::cout << "enter darkest secret: ";
-	std::cin >> input;
-	if (std::cin.eof())
-		return (1);
-	this->_darkest_secret = input;
-	//std::cout << this->_nickname << std::endl;
-	return (0);
 }
 
 std::string	Contact::getFirstName(void) const
@@ -88,3 +56,66 @@ std::string Contact::getPhoneNumber(void) const
 {
 	return (this->_phone_number);
 }
+
+int	Contact::setContact(void)
+{
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::string	input;
+	while (input == "")
+	{
+		std::cout << "enter first name: ";
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (1);
+		if (input == "")
+			std::cout << "this field can't be empty !" << std::endl;
+	}
+	this->_first_name = input;
+	input = "";
+	while (input == "")
+	{
+		std::cout << "enter last name: ";
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (1);
+		if (input == "")
+			std::cout << "this field can't be empty !" << std::endl;
+	}
+	this->_last_name = input;
+	input = "";
+	while (input == "")
+	{
+		std::cout << "enter nickname: ";
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (1);
+		if (input == "")
+			std::cout << "this field can't be empty !" << std::endl;
+	}
+	this->_nickname = input;
+	input = "";
+	while (input == "")
+	{
+		std::cout << "enter phone number: ";
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (1);
+		if (input == "")
+			std::cout << "this field can't be empty !" << std::endl;
+	}
+	this->_phone_number = input;
+	input = "";
+	while (input == "")
+	{
+		std::cout << "enter darkest secret: ";
+		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return (1);
+		if (input == "")
+			std::cout << "this field can't be empty !" << std::endl;
+	}
+	this->_darkest_secret = input;
+	input = "";
+	return (0);
+}
+

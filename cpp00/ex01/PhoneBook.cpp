@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:17:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/05 17:16:21 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/05 18:18:24 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Contact	PhoneBook::getContact(int index) const
 	return (this->_contact[index]);
 }
 
-void	PhoneBook::printContacts(void) const
+int	PhoneBook::printContacts(void) const
 {
 	Contact			contact;
 	size_t			i = 0;
@@ -55,6 +55,8 @@ void	PhoneBook::printContacts(void) const
 	{
 		std::cout << std::endl << "select your contact index: ";
 		std::cin >> i;
+		if (std::cin.eof())
+			return (1);
 		if (std::cin.fail() || i <= 0 || i > this->countContacts())
 		{
 			std::cout << "invalid input, the index must be a digit between 1 and " << this->countContacts();
@@ -69,10 +71,10 @@ void	PhoneBook::printContacts(void) const
 			std::cout << "last name: " << contact.getLastName() << std::endl;
 			std::cout << "nickname: " << contact.getNickname() << std::endl;
 			std::cout << "darkest secret: " << contact.getDarkestSecret() << std::endl;
-			return ;
+			return (0);
 		}
 	}
-	return ;
+	return (0);
 }
 
 void	PhoneBook::printTab(void) const

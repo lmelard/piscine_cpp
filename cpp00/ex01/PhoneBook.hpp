@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 20:15:17 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/05 15:34:38 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/05 18:13:51 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	PhoneBook
 		
 		int		setContact(int	index);
 		Contact	getContact(int index) const;
-		void	printContacts(void) const;
+		int		printContacts(void) const;
 		void	printTab(void) const;
 		size_t	countContacts(void) const;
 		

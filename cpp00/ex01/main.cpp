@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:53:53 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/05 15:54:06 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/05 18:22:28 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
+#include <limits>
 
 int	main(void)
 {
+	
 	PhoneBook	phonebook;
 	std::string	input;
 	int			index;
@@ -25,7 +27,9 @@ int	main(void)
 	while (1)
 	{
 		std::cout << "enter command: ADD | SEARCH | EXIT : ";
-		std::cin >> input;
+		//std::cin >> input;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::getline(std::cin, input);
 		if (input == "ADD")
 		{
 			if (phonebook.setContact(index) == 1)
@@ -43,7 +47,11 @@ int	main(void)
 			if (phonebook.countContacts())
 			{
 				phonebook.printTab();
-				phonebook.printContacts();	
+				if (phonebook.printContacts() == 1)
+				{
+					std::cout << "Exit" << std::endl;
+					return (1);
+				}
 			}
 			else
 				std::cout << "You have no contact" << std::endl;
