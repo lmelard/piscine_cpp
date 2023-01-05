@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:09:46 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/04 17:45:30 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/05 14:54:53 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Contact::Contact(void)
 {
-	std::cout << "Constructor Contact called" << std::endl;
+//	std::cout << "Constructor Contact called" << std::endl;
 	this->_first_name = "";
 	this->_last_name = "";
 	this->_nickname = "";
@@ -27,7 +27,7 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructor Contact called" << std::endl;
+//	std::cout << "Destructor Contact called" << std::endl;
 	return;
 }
 
@@ -42,18 +42,25 @@ int	Contact::setContact(void)
 	this->_first_name = input;
 	std::cout << "enter last name: ";
 	std::cin >> input;
+	if (std::cin.eof())
+		return (1);
 	this->_last_name = input;
 	std::cout << "enter nickname: ";
 	std::cin >> input;
+	if (std::cin.eof())
+		return (1);
 	this->_nickname = input;
 	std::cout << "enter phone number: ";
 	std::cin >> input;
+	if (std::cin.eof())
+		return (1);
 	this->_phone_number = input;
 	std::cout << "enter darkest secret: ";
 	std::cin >> input;
+	if (std::cin.eof())
+		return (1);
 	this->_darkest_secret = input;
-	std::cout << this->_nickname << std::endl;
-	input = "";
+	//std::cout << this->_nickname << std::endl;
 	return (0);
 }
 

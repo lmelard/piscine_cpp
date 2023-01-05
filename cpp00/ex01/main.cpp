@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:53:53 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/04 17:29:38 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/05 14:59:49 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ int	main(void)
 		else if (input == "EXIT")
 			return (0);
 		else if (input == "SEARCH")
+		{
+			phonebook.printTab();
 			phonebook.printContacts();
+		}
 	}
 	return (0);
 }
