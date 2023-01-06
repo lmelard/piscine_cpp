@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:07:59 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/04 17:43:56 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/06 15:01:20 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <limits>
 
 class Contact
 {

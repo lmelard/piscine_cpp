@@ -6,18 +6,15 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:09:46 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/05 18:11:02 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/06 17:44:15 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
-#include <iostream>
-#include <limits>
 
 Contact::Contact(void)
 {
-//	std::cout << "Constructor Contact called" << std::endl;
 	this->_first_name = "";
 	this->_last_name = "";
 	this->_nickname = "";
@@ -28,7 +25,6 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-//	std::cout << "Destructor Contact called" << std::endl;
 	return;
 }
 
@@ -59,8 +55,9 @@ std::string Contact::getPhoneNumber(void) const
 
 int	Contact::setContact(void)
 {
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::string	input;
+	int			check = 0;
+	std::cout << std::endl;
 	while (input == "")
 	{
 		std::cout << "enter first name: ";
@@ -102,6 +99,23 @@ int	Contact::setContact(void)
 			return (1);
 		if (input == "")
 			std::cout << "this field can't be empty !" << std::endl;
+		else
+		{
+			for (size_t i = 0; i < input.length(); i++)
+			{
+				if (!std::isdigit(input[i]))
+				{
+					check = 1;
+					break;
+				}
+			}
+			if (check == 1)
+			{
+				std::cout << "digits only !" << std::endl;
+				input = "";
+				check = 0;
+			}
+		}
 	}
 	this->_phone_number = input;
 	input = "";
@@ -116,6 +130,7 @@ int	Contact::setContact(void)
 	}
 	this->_darkest_secret = input;
 	input = "";
+	std::cout << std::endl;
 	return (0);
 }
 
