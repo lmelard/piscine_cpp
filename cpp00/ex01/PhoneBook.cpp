@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:17:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/06 18:00:21 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/09 12:04:04 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	PhoneBook::setContact(int index)
 //	std::cout << "debut fonction Phonebook::setcontact" <<std::endl;
 	if (contact.setContact())
 		return (1);
-	this->_contact[index] = contact;
+	this->_Contact[index] = contact;
 	return (0);
 }
 
 Contact	PhoneBook::getContact(int index) const
 {
-	return (this->_contact[index]);
+	return (this->_Contact[index]);
 }
 
 int	PhoneBook::printContacts(void) const
@@ -66,7 +66,7 @@ int	PhoneBook::printContacts(void) const
 		else
 		{
 			std::cout << std::endl;
-			contact = this->_contact[i - 1];
+			contact = this->_Contact[i - 1];
 			std::cout << "index: " << i << std::endl;
 			std::cout << "first name: " << contact.getFirstName() << std::endl;
 			std::cout << "last name: " << contact.getLastName() << std::endl;
@@ -90,10 +90,10 @@ void	PhoneBook::printTab(void) const
 	std::cout << std::setw(10) << std::right << "LAST NAME" << "|";
 	std::cout << std::setw(10) << std::right << "NICKNAME" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	for	(size_t	i = 0; i < 8 && this->_contact[i].getFirstName() != ""; i++)
+	for	(size_t	i = 0; i < 8 && this->_Contact[i].getFirstName() != ""; i++)
 	{
 	//	std::cout << "i: " << i << std::endl;
-		contact = this->_contact[i];
+		contact = this->_Contact[i];
 		std::cout << std::setw(10) << std::right << i + 1 << "|";
 		if (contact.getFirstName().size() > 10)
 			output = contact.getFirstName().substr(0, 9) + ".";
@@ -117,7 +117,7 @@ void	PhoneBook::printTab(void) const
 size_t	PhoneBook::countContacts(void) const
 {
 	size_t	i = 0;
-	while (i < 8 && this->_contact[i].getFirstName() != "")
+	while (i < 8 && this->_Contact[i].getFirstName() != "")
 		i++;
 	return (i);
 }

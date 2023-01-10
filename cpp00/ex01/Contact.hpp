@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:07:59 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/06 15:01:20 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/09 12:01:19 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ class Contact
 		std::string	getDarkestSecret(void) const;
 
 	private:
-		std::string	_first_name;
-		std::string	_last_name;
-		std::string	_nickname;
-		std::string	_phone_number;
-		std::string _darkest_secret;
+		std::string	_FirstName;
+		std::string	_LastName;
+		std::string	_Nickname;
+		std::string	_PhoneNumber;
+		std::string _DarkestSecret;
 };
 
 #endif

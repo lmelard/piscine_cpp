@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 20:15:17 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/09 12:03:22 by lmelard          ###   ########.fr       */
+/*   Created: 2023/01/10 13:36:12 by lmelard           #+#    #+#             */
+/*   Updated: 2023/01/10 16:46:27 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
-# include "Contact.hpp"
-# include <iostream>
-# include <iomanip>
-# include <string>
-# include <limits>
-# include <cstdlib>
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
-class	PhoneBook
+# include <iostream>
+# include <string>
+
+
+/* Static functions are not associated with an instance 
+of a class but with the class itself */ 
+
+class Zombie
 {
 	public:
-		PhoneBook(void);
-		~PhoneBook(void);
-		
-		int		setContact(int	index);
-		Contact	getContact(int index) const; // en prive ?
-		int		printContacts(void) const;
-		void	printTab(void) const;
-		size_t	countContacts(void) const;
-		
+		Zombie(std::string name);
+		~Zombie(void);
+		void	announce(void);
+		void	randomChump(std::string name);
 	private:
-		Contact	_Contact[8];
+		std::string	_name;
 };
+
+Zombie* newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:09:46 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/06 17:44:15 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/09 12:03:04 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 Contact::Contact(void)
 {
-	this->_first_name = "";
-	this->_last_name = "";
-	this->_nickname = "";
-	this->_phone_number = "";
-	this->_darkest_secret = "";
+	this->_FirstName = "";
+	this->_LastName = "";
+	this->_Nickname = "";
+	this->_PhoneNumber = "";
+	this->_DarkestSecret = "";
 	return;
 }
 
@@ -30,27 +30,27 @@ Contact::~Contact(void)
 
 std::string	Contact::getFirstName(void) const
 {
-	return (this->_first_name);
+	return (this->_FirstName);
 }
 
 std::string Contact::getLastName(void) const
 {
-	return (this->_last_name);
+	return (this->_LastName);
 }
 
 std::string	Contact::getNickname(void) const
 {
-	return (this->_nickname);
+	return (this->_Nickname);
 }
 
 std::string Contact::getDarkestSecret(void) const
 {
-	return (this->_darkest_secret);
+	return (this->_DarkestSecret);
 }
 
 std::string Contact::getPhoneNumber(void) const
 {
-	return (this->_phone_number);
+	return (this->_PhoneNumber);
 }
 
 int	Contact::setContact(void)
@@ -67,7 +67,7 @@ int	Contact::setContact(void)
 		if (input == "")
 			std::cout << "this field can't be empty !" << std::endl;
 	}
-	this->_first_name = input;
+	this->_FirstName = input;
 	input = "";
 	while (input == "")
 	{
@@ -78,7 +78,7 @@ int	Contact::setContact(void)
 		if (input == "")
 			std::cout << "this field can't be empty !" << std::endl;
 	}
-	this->_last_name = input;
+	this->_LastName = input;
 	input = "";
 	while (input == "")
 	{
@@ -89,7 +89,7 @@ int	Contact::setContact(void)
 		if (input == "")
 			std::cout << "this field can't be empty !" << std::endl;
 	}
-	this->_nickname = input;
+	this->_Nickname = input;
 	input = "";
 	while (input == "")
 	{
@@ -117,7 +117,7 @@ int	Contact::setContact(void)
 			}
 		}
 	}
-	this->_phone_number = input;
+	this->_PhoneNumber = input;
 	input = "";
 	while (input == "")
 	{
@@ -128,7 +128,7 @@ int	Contact::setContact(void)
 		if (input == "")
 			std::cout << "this field can't be empty !" << std::endl;
 	}
-	this->_darkest_secret = input;
+	this->_DarkestSecret = input;
 	input = "";
 	std::cout << std::endl;
 	return (0);
