@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lenamelard <lenamelard@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 13:38:02 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/11 14:20:10 by lenamelard       ###   ########.fr       */
+/*   Created: 2023/01/11 14:00:53 by lenamelard        #+#    #+#             */
+/*   Updated: 2023/01/11 16:42:03 by lenamelard       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-//#include <iostream>
 
-Zombie::Zombie(std::string name) : _name(name)
+int	main(void)
 {
-	std::cout << "constructor called" << std::endl;
-	//this->announce();
-	return ;
-}
+	Zombie *horde;
+	int	N;
 
-Zombie::~Zombie()
-{
-	std::cout << "destructor called for " << this->_name << std::endl;
-	return ;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	return ;
+	N = 2;
+	horde = zombieHorde(N, "lenaaaa");
+	if (!horde) {
+		std::cout << "Zombie error" << std::endl;
+		return (1);
+	}
+	for (int i = 0; i < N; i++) {
+		horde[N].announce();
+	}
+	delete [] horde;
+	return (0);
 }

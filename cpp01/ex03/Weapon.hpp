@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lenamelard <lenamelard@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 13:38:02 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/11 14:20:10 by lenamelard       ###   ########.fr       */
+/*   Created: 2023/01/11 17:33:31 by lenamelard        #+#    #+#             */
+/*   Updated: 2023/01/11 18:03:17 by lenamelard       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-//#include <iostream>
+#ifndef WEAPON_H
+# define WEAPON_H
 
-Zombie::Zombie(std::string name) : _name(name)
-{
-	std::cout << "constructor called" << std::endl;
-	//this->announce();
-	return ;
-}
+#include <iostream>
+#include <string>
 
-Zombie::~Zombie()
+class Weapon 
 {
-	std::cout << "destructor called for " << this->_name << std::endl;
-	return ;
-}
+	public:
+		Weapon(std::string type);
+		~Weapon(void);
+		std::string& const getType(void);
+		void	setType(std::string type);
+	private:
+		std::string	_type;
+};
 
-void	Zombie::announce(void)
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	return ;
-}
+#endif

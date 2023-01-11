@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lenamelard <lenamelard@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 13:38:02 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/11 14:20:10 by lenamelard       ###   ########.fr       */
+/*   Created: 2023/01/11 14:22:21 by lenamelard        #+#    #+#             */
+/*   Updated: 2023/01/11 16:40:46 by lenamelard       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-//#include <iostream>
 
-Zombie::Zombie(std::string name) : _name(name)
+Zombie* zombieHorde(int N, std::string name)
 {
-	std::cout << "constructor called" << std::endl;
-	//this->announce();
-	return ;
-}
+	Zombie* horde;
 
-Zombie::~Zombie()
-{
-	std::cout << "destructor called for " << this->_name << std::endl;
-	return ;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	return ;
+	if (N <= 0 )
+		return (NULL);
+	horde = new Zombie[N];
+	if (!horde)
+		return (NULL);
+	for (int i = 0; i < N; i++){
+		horde[N].setName(name);
+	}
+	return (horde);
 }
