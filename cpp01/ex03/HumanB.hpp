@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lenamelard <lenamelard@student.42.fr>      +#+  +:+       +#+        */
+/*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:33:25 by lenamelard        #+#    #+#             */
-/*   Updated: 2023/01/11 17:54:40 by lenamelard       ###   ########.fr       */
+/*   Updated: 2023/01/12 14:46:33 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ class HumanB
 		HumanB(std::string name);
 		~HumanB(void);
 		void	attack(void) const;
+		void	setName(std::string name);
+		void	setWeapon(Weapon type);
 	private:
 		std::string	_name;
-		Weapon	_type;
+		Weapon*	_type;
 };
 
 #endif
