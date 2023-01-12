@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:33:31 by lenamelard        #+#    #+#             */
-/*   Updated: 2023/01/12 14:54:55 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/12 15:29:32 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class Weapon 
 {
 	public:
+		Weapon(void);
 		Weapon(std::string type);
 		~Weapon(void);
 		std::string& getType(void);

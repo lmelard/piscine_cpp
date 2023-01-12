@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:33:25 by lenamelard        #+#    #+#             */
-/*   Updated: 2023/01/12 14:46:33 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/12 15:34:19 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB
 		~HumanB(void);
 		void	attack(void) const;
 		void	setName(std::string name);
-		void	setWeapon(Weapon type);
+		void	setWeapon(Weapon& type);
 	private:
 		std::string	_name;
 		Weapon*	_type;

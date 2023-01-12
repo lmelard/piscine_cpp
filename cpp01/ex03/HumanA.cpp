@@ -6,18 +6,18 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:33:17 by lenamelard        #+#    #+#             */
-/*   Updated: 2023/01/12 15:08:36 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/12 15:41:07 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "Weapon.hpp"
 
-HumanA::HumanA(std::string name, Weapon type) : _name(name), _type(type)
+HumanA::HumanA(std::string name, Weapon& type) : _name(name), _type(type)
 {
-	std::cout << "HumanAconstructor called" << std::endl;
-	this->setName(name);
-	this->setWeapon(type);
+//	std::cout << "HumanA constructor called" << std::endl;
+//	this->setName(name);
+//	this->setWeapon(type);
 	return ;
 }
 
@@ -42,6 +42,6 @@ void	HumanA::setWeapon(Weapon type)
 
 void HumanA::attack(void)
 {
-	std::cout << this->_name << "attacks with their " << this->_type.getType();
+	std::cout << this->_name << " attacks with their " << this->_type.getType() <<std::endl;
 	return ;
 }
