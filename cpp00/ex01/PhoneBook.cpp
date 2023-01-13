@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:17:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/13 18:10:50 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/13 18:15:21 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	PhoneBook::setContact(int index)
 {
 	Contact	contact;
 
-//	std::cout << "debut fonction Phonebook::setcontact" <<std::endl;
 	if (contact.setContact())
 		return (1);
 	this->_Contact[index] = contact;
