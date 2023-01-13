@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 12:17:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/09 12:04:04 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/13 18:10:50 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Contact	PhoneBook::getContact(int index) const
 int	PhoneBook::printContacts(void) const
 {
 	Contact			contact;
-	size_t			i = 0;
+	int			i = 0;
 	std::string		input;
 
 	while (1)
@@ -56,24 +56,25 @@ int	PhoneBook::printContacts(void) const
 			if (input == "")
 				std::cout << "this field can't be empty !";
 		}
-		i = std::atoi(input.c_str());
-		if (i <= 0 || i > this->countContacts())
-		{
-			std::cout << "invalid input, the index must be a digit between 1 and " << this->countContacts();
-			i = 0;
-			input = "";
-		}
-		else
+		std::stringstream ss(input);
+		int x = 0;
+		if (ss >> x && input.find('.') == std::string::npos && x > 0 && x <= this->countContacts())
 		{
 			std::cout << std::endl;
-			contact = this->_Contact[i - 1];
-			std::cout << "index: " << i << std::endl;
+			contact = this->_Contact[x - 1];
+			std::cout << "index: " << x << std::endl;
 			std::cout << "first name: " << contact.getFirstName() << std::endl;
 			std::cout << "last name: " << contact.getLastName() << std::endl;
 			std::cout << "nickname: " << contact.getNickname() << std::endl;
 			std::cout << "phone number: " << contact.getPhoneNumber() << std::endl;
 			std::cout << "darkest secret: " << contact.getDarkestSecret() << std::endl << std::endl;
 			return (0);
+		}
+		else
+		{
+			std::cout << "invalid input, the index must be a digit between 1 and " << this->countContacts();
+			i = 0;
+			input = "";
 		}
 	}
 	return (0);
@@ -90,9 +91,8 @@ void	PhoneBook::printTab(void) const
 	std::cout << std::setw(10) << std::right << "LAST NAME" << "|";
 	std::cout << std::setw(10) << std::right << "NICKNAME" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	for	(size_t	i = 0; i < 8 && this->_Contact[i].getFirstName() != ""; i++)
+	for	(int i = 0; i < 8 && this->_Contact[i].getFirstName() != ""; i++)
 	{
-	//	std::cout << "i: " << i << std::endl;
 		contact = this->_Contact[i];
 		std::cout << std::setw(10) << std::right << i + 1 << "|";
 		if (contact.getFirstName().size() > 10)
@@ -114,9 +114,9 @@ void	PhoneBook::printTab(void) const
 	return;
 }
 
-size_t	PhoneBook::countContacts(void) const
+int	PhoneBook::countContacts(void) const
 {
-	size_t	i = 0;
+	int	i = 0;
 	while (i < 8 && this->_Contact[i].getFirstName() != "")
 		i++;
 	return (i);

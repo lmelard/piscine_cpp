@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:09:46 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/09 12:03:04 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/13 17:33:27 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ int	Contact::setContact(void)
 			std::cout << "this field can't be empty !" << std::endl;
 		else
 		{
-			for (size_t i = 0; i < input.length(); i++)
+			int	len = input.length();
+			for (int i = 0; i < len; i++)
 			{
 				if (!std::isdigit(input[i]))
 				{

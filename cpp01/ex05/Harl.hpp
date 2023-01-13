@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 20:15:17 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/13 17:30:21 by lmelard          ###   ########.fr       */
+/*   Created: 2023/01/13 16:05:40 by lmelard           #+#    #+#             */
+/*   Updated: 2023/01/13 16:10:46 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
-# include "Contact.hpp"
-# include <iostream>
-# include <iomanip>
-# include <string>
-# include <limits>
-# include <cstdlib>
-# include <sstream>
+#ifndef HARL_H
+# define HARL_H
 
-class	PhoneBook
+# include <iostream>
+# include <string>
+
+class Harl
 {
 	public:
-		PhoneBook(void);
-		~PhoneBook(void);
-		
-		int		setContact(int	index);
-		Contact	getContact(int index) const; // en prive ?
-		int		printContacts(void) const;
-		void	printTab(void) const;
-		int		countContacts(void) const;
-		
+		Harl(void);
+		~Harl(void);
+		void	complain(std::string level);
 	private:
-		Contact	_Contact[8];
+		void	_debug(void);
+		void	_info(void);
+		void	_warning(void);
+		void	_error(void);
 };
 
 #endif
