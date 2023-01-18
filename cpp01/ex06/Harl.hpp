@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 15:15:12 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/18 15:17:46 by lmelard          ###   ########.fr       */
+/*   Created: 2023/01/18 15:39:16 by lmelard           #+#    #+#             */
+/*   Updated: 2023/01/18 15:39:19 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_H
+# define HARL_H
 
-int	main(void)
+# include <iostream>
+# include <string>
+
+class Harl
 {
-	Harl	lena;
+	public:
+		Harl(void);
+		~Harl(void);
+		void	complain(std::string level);
+	private:
+		void	_debug(void);
+		void	_info(void);
+		void	_warning(void);
+		void	_error(void);
+};
 
-	lena.complain("WARNING");
-	lena.complain("DEBUG");
-	lena.complain("");
-	lena.complain("ekfjelkfjerlkfre");
-	lena.complain("ERROR");
-	lena.complain("INFO");
-	return (0);
-}
+#endif
