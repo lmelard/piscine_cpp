@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 16:13:42 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/19 16:13:47 by lmelard          ###   ########.fr       */
+/*   Created: 2023/01/19 13:26:39 by lmelard           #+#    #+#             */
+/*   Updated: 2023/01/19 13:31:03 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Integer.class.hpp"
 #include <iostream>
-#include <ctype.h>
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	j = 0;
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		while (i < argc)
-		{
-			j = 0;
-			while (argv[i][j])
-			{
-				std::cout << (char)(std::toupper(argv[i][j]));
-				j++;
-			}
-			if (i != argc - 1)
-				std::cout << " ";
-			i++;
-		}
-		std::cout << std::endl;
-	}
+	Integer	x(30);
+	Integer	y(10);
+	Integer	z(0);
+	
+	std::cout << "Value of x : " << x << std::endl;
+	std::cout << "Value of y : " << y << std::endl;
+	y = Integer(12);
+	std::cout << "Value of y : " << y << std::endl;
+	z = x + y;
+	std::cout << "Value of z : " << z << std::endl;
 	return (0);
 }

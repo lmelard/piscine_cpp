@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 16:13:42 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/19 16:13:47 by lmelard          ###   ########.fr       */
+/*   Created: 2023/01/19 17:48:14 by lmelard           #+#    #+#             */
+/*   Updated: 2023/01/19 17:52:00 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Sample.class.hpp"
 #include <iostream>
-#include <ctype.h>
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	int	i;
-	int	j;
+	Sample	instance1;
+	Sample	instance2(42);
+	Sample	instance3( instance1 );
 
-	i = 1;
-	j = 0;
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		while (i < argc)
-		{
-			j = 0;
-			while (argv[i][j])
-			{
-				std::cout << (char)(std::toupper(argv[i][j]));
-				j++;
-			}
-			if (i != argc - 1)
-				std::cout << " ";
-			i++;
-		}
-		std::cout << std::endl;
-	}
+	std::cout << instance1 << std::endl;
+	std::cout << instance2 << std::endl;
+	std::cout << instance3 << std::endl;
+	
+	instance3 = instance2;
+	std::cout << instance3 << std::endl;
 	return (0);
 }
