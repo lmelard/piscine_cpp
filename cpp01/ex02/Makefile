@@ -7,22 +7,25 @@ NAME		= zombieBrain
 #
 # OBJS		object files
 #
-# CPPC		compiler
-# CPPFLAGS	compiler flags
+# CXX		c++ compiler
+# CXXFLAGS	compiler flags for C++ source files
+# CPPFLAGS	flags for every source files: header...
 
-SRCS		= ./main.cpp \
+SRCS		:= ./main.cpp \
+			
+OBJS		:= ${SRCS:%.cpp=%.o}
+DEPS		:= ${SRCS:%.cpp=%.d}
 
-OBJS		= ${SRCS:.cpp=.o}
-
-CPPC		= c++
-CPPFLAGS	= -Wall -Werror -Wextra -g3 -std=c++98
+CXX			:= c++
+CXXFLAGS	:= -Wall -Werror -Wextra -g3 -std=c++98
+CPPFLAGS	:= -MMD
 
 #------------------------------------------------#
 #   UTENSILS                                     #
 #------------------------------------------------#
 # RM		cleaning command
 
-RM			= rm -rf
+RM			:= rm -rf
 
 #------------------------------------------------#
 #   RECIPES                                      #
@@ -34,22 +37,24 @@ RM			= rm -rf
 # fclean	remove .o + binary
 # re		remake default goal
 
-%.o: %.cpp
-	$(CPPC) $(CPPFLAGS) -c $< -o ${<:.cpp=.o}
+-include $(DEPS)
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
+
 $(NAME): $(OBJS)
-	$(CPPC) $(CPPFLAGS) -o ${NAME} ${OBJS}
+	$(CXX) $(OBJS) -o ${NAME}
 	$(info CREATED $(NAME))
 
 clean:
-	$(RM) $(OBJS)
-	@echo "REMOVED object files"
+	@$(RM) $(OBJS) $(DEPS)
+	$(info REMOVED OBJS & DEPS)
 
 fclean: clean
-	$(RM) $(NAME)
-	@echo "Cleaning done!"
+	@$(RM) $(NAME)
+	$(info REMOVED $(NAME))
 
 re:
 	$(MAKE) fclean
