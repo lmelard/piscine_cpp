@@ -1,4 +1,4 @@
-NAME		= HarlFilter
+NAME		= fixed
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
@@ -11,7 +11,7 @@ NAME		= HarlFilter
 # CXXFLAGS	compiler flags for C++ source files
 # CPPFLAGS	flags for every source files: header...
 
-SRCS		:= ./Harl.cpp \
+SRCS		:= ./Fixed.cpp \
 			./main.cpp \
 			
 OBJS		:= ${SRCS:%.cpp=%.o}
