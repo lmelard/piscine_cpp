@@ -20,7 +20,7 @@ DEPS		:= ${SRCS:%.cpp=%.d}
 
 CXX			:= c++
 CXXFLAGS	:= -Wall -Werror -Wextra -g3 -std=c++98
-CPPFLAGS	:= -MMD
+CPPFLAGS	:= -MMD -MP
 
 #------------------------------------------------#
 #   UTENSILS                                     #
@@ -39,12 +39,13 @@ RM			:= rm -rf
 # fclean	remove .o + binary
 # re		remake default goal
 
--include $(DEPS)
 
 all: $(NAME)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
+
+-include $(DEPS)
 
 $(NAME): $(OBJS)
 	$(CXX) $(OBJS) -o ${NAME}

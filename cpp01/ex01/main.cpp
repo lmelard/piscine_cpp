@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lenamelard <lenamelard@student.42.fr>      +#+  +:+       +#+        */
+/*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:00:53 by lenamelard        #+#    #+#             */
-/*   Updated: 2023/01/11 16:42:03 by lenamelard       ###   ########.fr       */
+/*   Updated: 2023/01/26 12:16:34 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 		return (1);
 	}
 	for (int i = 0; i < N; i++) {
-		horde[N].announce();
+		horde[i].announce();
 	}
 	delete [] horde;
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:36:12 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/17 15:40:53 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/26 12:00:50 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Zombie
 		Zombie(std::string name);
 		~Zombie(void);
 		void	announce(void);
-		void	randomChump(std::string name);
 	private:
 		std::string	_name;
 };
