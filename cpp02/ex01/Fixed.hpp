@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:49:05 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/25 18:54:25 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/27 19:39:17 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,30 @@
 class	Fixed 
 {
 	public:
-		Fixed(void); // constructeur par defaut
-		Fixed(Fixed const & src); // constructeur de recopie
-		Fixed(const int c);
-		~Fixed(void); // destructeur
+		// constructeur par defaut
+		Fixed(void);
+		// constructeur de recopie
+		Fixed(Fixed const & src);
+		// constructeur convertisseur int -> virgule fixe
+		Fixed(int const c);
+		// constructeur convertisseur float -> virgule fixe
+		Fixed(float const f);
+		// destructeur
+		~Fixed(void);
 
 		Fixed & operator=(Fixed const & rhs);
 		int		getRawBits(void) const;
 		void	setRawBits( int const raw );
+		// convertit valeur en virgule fixe en nombre entier
+		float	toFloat(void) const;
+		// convertit valeur en virgule fixe en nombre entier
+		int		toInt(void) const;
+
 	private:
 		int					_rawBits;
 		static const int	_bitsNbr;
 };
+
+std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
 
 #endif
