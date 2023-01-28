@@ -47,7 +47,7 @@ all: $(NAME)
 -include $(DEPS)
 
 $(NAME): $(OBJS)
-	$(CXX) $(OBJS) -o ${NAME}
+	$(CXX) $(OBJS) $(CXXFLAGS) $(CPPFLAGS) -o ${NAME}
 	$(info CREATED $(NAME))
 
 clean:

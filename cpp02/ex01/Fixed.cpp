@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 11:58:30 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/27 20:04:01 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/28 17:45:29 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,13 @@ Fixed::Fixed(int const c)
 	return ;
 }
 
+Fixed::Fixed(float const f)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_rawBits = roundf(f * (1 << Fixed::_bitsNbr));
+	return ;
+}
+
 Fixed & Fixed::operator=(Fixed const & rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -60,4 +67,24 @@ void	Fixed::setRawBits( int const raw )
 	this->_rawBits = raw << this->_bitsNbr;
 	//this->_rawBits = raw;
 	return ;
+}
+
+float	Fixed::toFloat(void) const
+{
+	float	f;
+	f = (float)this->_rawBits / (float)(1 << Fixed::_bitsNbr);
+	return (f);
+}
+
+int	Fixed::toInt(void) const
+{
+	int	i;
+	i = this->_rawBits >> this->_bitsNbr;
+	return i;
+}
+
+std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
+{
+	o << rhs.toFloat();
+	return o;
 }
