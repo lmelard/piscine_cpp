@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:33:17 by lenamelard        #+#    #+#             */
-/*   Updated: 2023/01/12 15:41:07 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/28 18:38:41 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 HumanA::HumanA(std::string name, Weapon& type) : _name(name), _type(type)
 {
-//	std::cout << "HumanA constructor called" << std::endl;
-//	this->setName(name);
-//	this->setWeapon(type);
 	return ;
 }
 
@@ -31,8 +28,6 @@ void	HumanA::setName(std::string name)
 	this->_name = name;
 	return ;
 }
-
-/* Utilisation d'une reference car on passe directement une arme en parametre */ 
 
 void	HumanA::setWeapon(Weapon type)
 {
