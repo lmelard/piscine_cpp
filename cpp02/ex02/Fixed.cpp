@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:53:27 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/28 20:06:40 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/30 16:02:19 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,78 @@ t_bool Fixed::operator!=(Fixed const & rhs)
 	if (this->_rawBits != rhs._rawBits)
 		return (TRUE);
 	return (FALSE);
+}
+
+/* OPERATEURS D'INCREMENTATION */
+
+Fixed	Fixed::operator++(void) // pre-incrementation
+{
+	Fixed	tmp;
+	this->_rawBits++;
+	tmp._rawBits = this->_rawBits;
+	return (tmp);
+}
+
+Fixed	Fixed::operator++(int) // post-incrementation
+{
+	Fixed	tmp;
+	tmp._rawBits = this->_rawBits;
+	this->_rawBits += 1;
+	return (tmp);
+}
+
+Fixed	Fixed::operator--(void) // pre-decrementation
+{
+	Fixed	tmp;
+	this->_rawBits += 1;
+	tmp._rawBits = this->_rawBits;
+	return (tmp);
+}
+
+Fixed	Fixed::operator--(int) // post-incrementation
+{
+	Fixed	tmp;
+	tmp._rawBits = this->_rawBits;
+	this->_rawBits++;
+	return (tmp);
+}
+
+/* FONCTIONS MEMBRES PUBLIQUES SURCHARGEES */
+
+Fixed &	Fixed::min(Fixed & a, Fixed & b)
+{
+	std::cout << "non const min function called" << std::endl;
+	if (a > b)
+		return (b);
+	else
+		return (a);
+}
+
+Fixed const & Fixed::min(Fixed const & a, Fixed const & b)
+{
+	std::cout << "const min function called" << std::endl;
+	if (a._rawBits > b._rawBits)
+		return (b);
+	else
+		return (a);
+}
+
+Fixed & Fixed::max(Fixed & a, Fixed & b)
+{
+	std::cout << "non const max function called" << std::endl;
+	if (a >= b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed const & Fixed::max(Fixed const & a, Fixed const & b)
+{
+	std::cout << "const max function called" << std::endl;
+	if (a._rawBits >= b._rawBits)
+		return (a);
+	else
+		return (b);
 }
 
 int	Fixed::getRawBits(void)	const

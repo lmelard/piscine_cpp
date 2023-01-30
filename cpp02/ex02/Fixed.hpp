@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:53:24 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/28 19:57:37 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/30 15:07:21 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,27 @@ class	Fixed
 
 		Fixed & operator=(Fixed const & rhs);
 		
-		Fixed operator+(Fixed const & rhs);
-		Fixed operator-(Fixed const & rhs);
-		Fixed operator*(Fixed const & rhs);
-		Fixed operator/(Fixed const & rhs);
+		Fixed	operator+(Fixed const & rhs);
+		Fixed 	operator-(Fixed const & rhs);
+		Fixed	operator*(Fixed const & rhs);
+		Fixed	operator/(Fixed const & rhs);
 		
-		t_bool operator>(Fixed const & rhs);
-		t_bool operator<(Fixed const & rhs);
-		t_bool operator>=(Fixed const & rhs);
-		t_bool operator<=(Fixed const & rhs);
-		t_bool operator==(Fixed const & rhs);
-		t_bool operator!=(Fixed const & rhs);
+		t_bool	operator>(Fixed const & rhs);
+		t_bool	operator<(Fixed const & rhs);
+		t_bool	operator>=(Fixed const & rhs);
+		t_bool	operator<=(Fixed const & rhs);
+		t_bool	operator==(Fixed const & rhs);
+		t_bool	operator!=(Fixed const & rhs);
+		
+		Fixed	operator++(void);
+		Fixed	operator++(int);
+		Fixed	operator--(void);
+		Fixed	operator--(int);
+
+		static Fixed & min(Fixed & a, Fixed & b);
+		static Fixed const & min(Fixed const & a, Fixed const & b);
+		static Fixed & max(Fixed & a, Fixed & b);
+		static Fixed const & max(Fixed const & a, Fixed const & b);	
 		
 		int		getRawBits(void) const;
 		void	setRawBits( int const raw );
