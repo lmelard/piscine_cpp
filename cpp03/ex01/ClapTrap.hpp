@@ -6,12 +6,12 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:36:36 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/31 20:29:08 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/01/31 20:37:03 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 
