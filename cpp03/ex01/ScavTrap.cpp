@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:46:37 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/31 20:28:28 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/01 11:51:06 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,23 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 	if (this != &rhs)
 		ClapTrap::operator=(rhs);
 	return (*this);
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	std::cout << BYELLOW;
+	if (this->_hitPoints <= 0)
+		std::cout << "ScavTrap " << this->_name << " cannot attack " << target << " it is dead" << std::endl;
+	else if (this->_energyPoints <= 0)
+		std::cout << "ScavTrap " << this->_name << " doesn't have enough energy to attack " << target << std::endl;
+	else
+	{
+		this->_energyPoints -= 1;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target;
+		std::cout << ", causing " << this->_attackDammage << " points of damage !" << std::endl;
+	}
+	std::cout << RESET;
+	return ;
 }
 
 void	ScavTrap::guardGate(void)

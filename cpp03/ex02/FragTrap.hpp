@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:36:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/31 20:46:43 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/01 11:58:35 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class FragTrap : public ClapTrap
 
 		FragTrap & operator=(FragTrap const & rhs);
 
+		void	attack(const std::string& target);
 		void	printFragTrapInfo(void) const;
 		void	highFivesGuys(void);
 };

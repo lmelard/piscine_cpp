@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:47:04 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/31 20:53:57 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/01 11:59:24 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,23 @@ FragTrap & FragTrap::operator=(FragTrap const & rhs)
 	if (this != &rhs)
 		ClapTrap::operator=(rhs);
 	return (*this);
+}
+
+void	FragTrap::attack(const std::string& target)
+{
+	std::cout << BYELLOW;
+	if (this->_hitPoints <= 0)
+		std::cout << "FragTrap " << this->_name << " cannot attack " << target << " it is dead" << std::endl;
+	else if (this->_energyPoints <= 0)
+		std::cout << "FragTrap " << this->_name << " doesn't have enough energy to attack " << target << std::endl;
+	else
+	{
+		this->_energyPoints -= 1;
+		std::cout << "FragTrap " << this->_name << " attacks " << target;
+		std::cout << ", causing " << this->_attackDammage << " points of damage !" << std::endl;
+	}
+	std::cout << RESET;
+	return ;
 }
 
 void	FragTrap::highFivesGuys(void)
