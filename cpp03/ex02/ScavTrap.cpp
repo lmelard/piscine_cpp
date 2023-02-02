@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:46:37 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/01 11:58:02 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/02 12:16:50 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,12 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 void	ScavTrap::guardGate(void)
 {
 	std::cout << BGREEN;
-	std::cout << "ScavTrap " << this->_name << " entered Gate keeper mode" << std::endl;
+	if (this->_hitPoints <= 0)
+		std::cout << "ScavTrap " << this->_name << " cannot enter Gate keeper mode " << " it is dead" << std::endl;
+	else if (this->_energyPoints <= 0)
+		std::cout << "ScavTrap " << this->_name << " doesn't have enough energy to enter Gate keeper mode" << std::endl;
+	else
+		std::cout << "ScavTrap " << this->_name << " entered Gate keeper mode" << std::endl;
 	std::cout << RESET;
 	return ;
 }
