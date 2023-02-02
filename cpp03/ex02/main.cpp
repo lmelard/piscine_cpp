@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:46:49 by lmelard           #+#    #+#             */
-/*   Updated: 2023/01/31 20:51:55 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/02 13:29:05 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(void)
 	// chris.printFragTrapInfo();
 	// lea.printFragTrapInfo();
 	
-	// /* FIRST TEST DEATH*/
+	/* FIRST TEST DEATH*/
 	
 	lena.takeDamage(6);
 	lena.printFragTrapInfo();
@@ -53,10 +53,12 @@ int	main(void)
 
 	/* SECOND TEST ENERGY */
 
-	// for (int i = 0; i < 51; i++)
+	// for (int i = 0; i < 100; i++)
 	// {
 	// 	lena.attack("christel");
 	// 	lena.printFragTrapInfo();
 	// }
+	// lena.highFivesGuys();
+	
 	return (0);
 }

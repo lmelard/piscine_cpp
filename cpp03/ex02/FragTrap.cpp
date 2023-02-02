@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:47:04 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/01 11:59:24 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/02 13:24:47 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,12 @@ void	FragTrap::attack(const std::string& target)
 void	FragTrap::highFivesGuys(void)
 {
 	std::cout << BGREEN;
-	std::cout << "FragTrap " << this->_name << ": give me high fives !!!!!" << std::endl;
+	if (this->_hitPoints <= 0)
+		std::cout << "FragTrap " << this->_name << " cannot receive high fives, it's dead..." << std::endl;
+	else if (this->_energyPoints <= 0)
+		std::cout << "FragTrap " << this->_name << " doesn't have enough energy to receive high fives..." << std::endl;
+	else
+		std::cout << "FragTrap " << this->_name << ": give me high fives !!!!!" << std::endl;
 	std::cout << RESET;
 	return ;
 }
