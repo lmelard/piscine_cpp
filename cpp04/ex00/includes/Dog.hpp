@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:15:58 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/03 17:59:50 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/03 20:06:26 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define BGREEN		"\033[1;92m"
 # define PURPLE		"\033[0;35m"
 # define CYAN		"\033[0;36m"
+# define GREEN		"\033[0;32m"
 
 class Dog : public Animal
 {

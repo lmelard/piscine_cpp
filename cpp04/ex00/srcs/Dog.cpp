@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:20:23 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/03 18:10:39 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/03 20:07:20 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog() : Animal()
 {
-	std::cout << CYAN;
+	std::cout << GREEN;
 	std::cout << "Dog default constructor called" << std::endl;
 	this->_type = "Dog";
 	std::cout << RESET;
@@ -23,7 +23,7 @@ Dog::Dog() : Animal()
 
 Dog::Dog(Dog const & src) : Animal(src)
 {
-	std::cout << CYAN;
+	std::cout << GREEN;
 	std::cout << "Dog copy constructor called" << std::endl;
 	*this = src;
 	this->_type = "Dog";
@@ -33,7 +33,7 @@ Dog::Dog(Dog const & src) : Animal(src)
 
 Dog::~Dog(void)
 {
-	std::cout << CYAN;
+	std::cout << GREEN;
 	std::cout << "Dog default destructor called" << std::endl;
 	std::cout << RESET;
 	return ;
@@ -48,7 +48,7 @@ Dog	& Dog::operator=(Dog const & rhs)
 
 void Dog::makeSound(void) const
 {
-	std::cout << CYAN;
+	std::cout << GREEN;
 	std::cout << "wooooooof" << std::endl;
 	std::cout << RESET;
 	return;
