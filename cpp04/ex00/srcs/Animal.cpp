@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 16:22:06 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/02 17:13:48 by lmelard          ###   ########.fr       */
+/*   Created: 2023/02/02 14:44:09 by lmelard           #+#    #+#             */
+/*   Updated: 2023/02/03 18:03:38 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
 
-WrongAnimal::WrongAnimal(void) : _type("")
+Animal::Animal(void) : _type("")
 {
-	std::cout << "WrongAnimal default constructor called" << std::endl;
+	std::cout << PURPLE;
+	std::cout << "Animal default constructor called" << std::endl;
+	std::cout << RESET;
 	return ;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const & src) : _type("")
+Animal::Animal(Animal const & src) : _type("")
 {
-	std::cout << "WrongAnimal copy constructor called" << std::endl;
+	std::cout << PURPLE;
+	std::cout << "Animal copy constructor called" << std::endl;
 	*this = src;
+	std::cout << RESET;
 	return ;
 }
 
-WrongAnimal::~WrongAnimal(void)
+Animal::~Animal(void)
 {
-	std::cout << "WrongAnimal default destructor called" << std::endl;
+	std::cout << PURPLE;
+	std::cout << "Animal default destructor called" << std::endl;
+	std::cout << RESET;
 	return ;
 }
 
-WrongAnimal & WrongAnimal::operator=(WrongAnimal const & rhs)
+Animal & Animal::operator=(Animal const & rhs)
 {
 	if (this != &rhs)
 	{
@@ -40,13 +46,15 @@ WrongAnimal & WrongAnimal::operator=(WrongAnimal const & rhs)
 	return (*this);
 }
 
-std::string	WrongAnimal::getType(void) const
+std::string	Animal::getType(void) const
 {
 	return (this->_type);
 }
 
-void WrongAnimal::makeSound(void) const
+void Animal::makeSound(void) const
 {
+	std::cout << PURPLE;
 	std::cout << "the sound of silence" << std::endl;
+	std::cout << RESET;
 	return;
 }

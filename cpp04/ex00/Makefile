@@ -1,4 +1,4 @@
-NAME		= FragTrap
+NAME		:= Animal
 
 #------------------------------------------------#
 #   INGREDIENTS                                  #
@@ -11,17 +11,28 @@ NAME		= FragTrap
 # CXXFLAGS	compiler flags for C++ source files
 # CPPFLAGS	flags for every source files: header...
 
-SRCS		:= ./main.cpp \
-			./Animal.cpp \
-			./Cat.cpp \
-			./Dog.cpp \
-			
-OBJS		:= ${SRCS:%.cpp=%.o}
-DEPS		:= ${SRCS:%.cpp=%.d}
+SRC_DIR		:= srcs
+SRCS		:= main.cpp \
+			Animal.cpp \
+			Cat.cpp \
+			Dog.cpp \
+			WrongDog.cpp \
+			WrongCat.cpp \
+			WrongAnimal.cpp \
+
+SRCS		:= $(addprefix $(SRC_DIR)/,$(SRCS))
+
+OBJ_DIR		:= obj
+OBJS		:= $(subst .cpp,.o,$(SRCS))
+OBJS		:= $(subst $(SRC_DIR),$(OBJ_DIR),$(OBJS))
+
+DEP_DIR		:= dir
+DEPS		:= $(subst .cpp,.d,$(SRCS))
+DEPS		:= $(subst $(SRC_DIR),$(DEP_DIR),$(DEPS))
 
 CXX			:= c++
 CXXFLAGS	:= -Wall -Werror -Wextra -g3 -std=c++98
-CPPFLAGS	:= -MMD
+CPPFLAGS	:= -MMD -I includes
 
 #------------------------------------------------#
 #   UTENSILS                                     #
@@ -29,6 +40,7 @@ CPPFLAGS	:= -MMD
 # RM		cleaning command
 
 RM			:= rm -rf
+DIR_DUP		= mkdir -p $(@D)
 
 #------------------------------------------------#
 #   RECIPES                                      #
@@ -43,8 +55,10 @@ RM			:= rm -rf
 
 all: $(NAME)
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(DIR_DUP)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(info CREATED $@)
 
 -include $(DEPS)
 
@@ -52,8 +66,10 @@ $(NAME): $(OBJS)
 	$(CXX) $(OBJS) $(CXXFLAGS) $(CPPFLAGS) -o ${NAME}
 	$(info CREATED $(NAME))
 
+
 clean:
 	@$(RM) $(OBJS) $(DEPS)
+	$(RM) -r $(OBJ_DIR) $(DEP_DIR)
 	$(info REMOVED OBJS & DEPS)
 
 fclean: clean

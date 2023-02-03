@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 14:43:32 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/02 16:11:28 by lmelard          ###   ########.fr       */
+/*   Created: 2023/02/02 15:15:58 by lmelard           #+#    #+#             */
+/*   Updated: 2023/02/03 17:59:50 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
+# include "Animal.hpp"
 # include <iostream>
 
-class Animal
+# define RESET		"\033[0m"
+# define BRED		"\033[1;31m"   
+# define BBLUE		"\033[1;34m"  
+# define BYELLOW	"\033[1;33m"
+# define BGREEN		"\033[1;92m"
+# define PURPLE		"\033[0;35m"
+# define CYAN		"\033[0;36m"
+
+class Dog : public Animal
 {
 	public:
-		Animal(void);
-		Animal(Animal const & src);
-		virtual ~Animal();
-
-		Animal & operator=(Animal const & rhs);
+		Dog(void);
+		Dog(Dog const & src);
+		virtual ~Dog();
+		
+		Dog	& operator=(Dog const & rhs);
 		virtual void makeSound(void) const;
-		std::string	getType(void) const;
-	protected:
-		std::string	_type;
+	private:
+		
 };
 
 #endif

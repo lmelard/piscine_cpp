@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongDog.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 15:20:23 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/02 16:12:35 by lmelard          ###   ########.fr       */
+/*   Created: 2023/02/03 15:42:26 by lmelard           #+#    #+#             */
+/*   Updated: 2023/02/03 17:08:15 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongDog.hpp"
 
-Dog::Dog() : Animal()
+WrongDog::WrongDog() : WrongAnimal()
 {
-	std::cout << "Dog default constructor called" << std::endl;
-	this->_type = "Dog";
+	std::cout << "WrongDog default constructor called" << std::endl;
+	this->_type = "WrongDog";
 	return ;
 }
 
-Dog::Dog(Dog const & src) : Animal(src)
+WrongDog::WrongDog(WrongDog const & src) : WrongAnimal(src)
 {
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "WrongDog copy constructor called" << std::endl;
 	*this = src;
-	this->_type = "Dog";
+	this->_type = "WrongDog";
 	return ;
 }
 
-Dog::~Dog(void)
+WrongDog::~WrongDog(void)
 {
-	std::cout << "Default Dog destructor called" << std::endl;
+	std::cout << "Default WrongDog destructor called" << std::endl;
 	return ;
 }
 
-Dog	& Dog::operator=(Dog const & rhs)
+WrongDog	& WrongDog::operator=(WrongDog const & rhs)
 {
 	if (this != &rhs)
-		Animal::operator=(rhs);
+		WrongAnimal::operator=(rhs);
 	return(*this);
 }
 
-void Dog::makeSound(void) const
+void WrongDog::makeSound(void) const
 {
 	std::cout << "wooooooof" << std::endl;
 	return;
