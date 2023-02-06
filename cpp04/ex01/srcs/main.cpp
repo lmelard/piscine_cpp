@@ -6,106 +6,78 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:03:33 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/03 20:12:30 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/06 15:54:22 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include "WrongDog.hpp"
 
 int	main(void)
 {
-	/* ANIMAL ET DERIVEES */
-	
-	// const	Animal* meta = new Animal();
+	// Animal* tab[8];
+	// for (int i = 0; i < 4; i++)
+	// 	tab[i] = new Cat();
 	// std::cout << std::endl;
-	// const	Animal* j = new Dog();
+	// for (int i = 4; i < 8; i++)
+	// 	tab[i] = new Dog();
 	// std::cout << std::endl;
-	// const	Animal* i = new Cat();
+	// for (int i = 0; i < 8; i++)
+	// 	std::cout << tab[i]->getType() << std::endl;
 	// std::cout << std::endl;
-	// //const	Cat	miaou = Dog();
-	// const	Cat	miaou = Cat();
+	// for (int i = 0; i < 8; i++)
+	// 	tab[i]->makeSound();
 	// std::cout << std::endl;
-	// const	Cat	chat = Cat(miaou);
-	// std::cout << std::endl;
-	// const	Dog	doggo = Dog();
-	// std::cout << std::endl;
-	
-	// std::cout << "j type: " << j->getType() << " " << std::endl;
-	// std::cout << "i type: " << i->getType() << " " << std::endl;
-	// std::cout << "miaou type: " << miaou.getType() << " " << std::endl;
-	// std::cout << "chat type: " << chat.getType() << " " << std::endl;
-	// std::cout << "doggo type: " << doggo.getType() << " " << std::endl;
-	// std::cout << std::endl;
-	
-	// std::cout << "j sound: ";
-	// j->makeSound();
-	// std::cout << "i sound: ";
-	// i->makeSound();
-	// std::cout << "miaou sound: ";
-	// miaou.makeSound();
-	// std::cout << "chat sound: ";
-	// chat.makeSound();
-	// std::cout << "doggo sound: ";
-	// doggo.makeSound();
-	// std::cout << "meta sound: ";
-	// meta->makeSound();
+	// for (int i = 0; i < 8; i++)
+	// 	delete tab[i];
 
-	// std::cout << std::endl;
-	// delete meta;
-	// std::cout << std::endl;
-	// delete j;
-	// std::cout << std::endl;
-	// delete i;
-	// std::cout << std::endl;
+	/* DEEP DOG COPY */
+	{
+		Dog hermes;
+		Brain* hermesBrain;
 
-	/* WRONG ANIMAL ET DERIVEE */
+		std::cout << std::endl;
+		hermesBrain = hermes.getBrain();
+		hermesBrain->setIdea("i hate cats", 0);
+		std::cout << "hermes first idea: " << hermesBrain->getIdea(0) << std::endl;
+		std::cout << std::endl;
 
-	const	WrongAnimal* meta = new WrongAnimal();
-	std::cout << std::endl;
-	const	WrongAnimal* j = new WrongDog();
-	std::cout << std::endl;
-	const	WrongAnimal* i = new WrongCat();
-	std::cout << std::endl;
-	//const	WrongCat	miaou = WrongDog();
-	const	WrongCat	miaou = WrongCat();
-	std::cout << std::endl;
-	const	WrongCat	chat = WrongCat(miaou);
-	std::cout << std::endl;
-	const	WrongDog	doggo = WrongDog();
-	std::cout << std::endl;
+		Dog lola(hermes);
 	
-	std::cout << "j type: " << j->getType() << " " << std::endl;
-	std::cout << "i type: " << i->getType() << " " << std::endl;
-	std::cout << "miaou type: " << miaou.getType() << " " << std::endl;
-	std::cout << "chat type: " << chat.getType() << " " << std::endl;
-	std::cout << "doggo type: " << doggo.getType() << " " << std::endl;
-	std::cout << std::endl;
-	
-	std::cout << "j sound: ";
-	j->makeSound();
-	std::cout << "i sound: ";
-	i->makeSound();
-	std::cout << "miaou sound: ";
-	miaou.makeSound();
-	std::cout << "chat sound: ";
-	chat.makeSound();
-	std::cout << "doggo sound: ";
-	doggo.makeSound();
-	std::cout << "meta sound: ";
-	meta->makeSound();
+		Brain* lolaBrain;
+		std::cout << std::endl;
+		lolaBrain = lola.getBrain();
+		std::cout << "lola first idea:   " << hermesBrain->getIdea(0) << std::endl;
+		std::cout << std::endl;
 
-	std::cout << std::endl;
-	delete meta;
-	std::cout << std::endl;
-	delete j;
-	std::cout << std::endl;
-	delete i;
-	std::cout << std::endl;
+		lolaBrain->setIdea("i love cats", 0);
+		std::cout << "lola first idea:   " << lolaBrain->getIdea(0) << std::endl;
+		std::cout << "hermes first idea: " << hermesBrain->getIdea(0) << std::endl << std::endl;
+	}
+	/* DEEP CAT COPY */
+	{
+		std::cout << std::endl;
+		Cat	titi;
+		Brain* titiBrain;
+		std::cout << std::endl;
+		titiBrain = titi.getBrain();
+		titiBrain->setIdea("i hate dogs", 0);
+		std::cout << "titi first idea:   " << titiBrain->getIdea(0) << std::endl;
+		std::cout << std::endl;
+
+		Cat chat(titi);
+	
+		Brain* chatBrain;
+		std::cout << std::endl;
+		chatBrain = chat.getBrain();
+		std::cout << "chat first idea:   " << chatBrain->getIdea(0) << std::endl;
+		std::cout << std::endl;
+
+		chatBrain->setIdea("i love dogs", 0);
+		std::cout << "chat first idea:   " << chatBrain->getIdea(0) << std::endl;
+		std::cout << "titi first idea:   " << titiBrain->getIdea(0) << std::endl << std::endl;
+	}
 	
 	return 0;
 }

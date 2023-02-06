@@ -6,13 +6,13 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:21:09 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/06 14:13:29 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/06 16:58:43 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal()
+Cat::Cat() : AAnimal()
 {
 	std::cout << CYAN;
 	std::cout << "Cat default constructor called" << std::endl;
@@ -22,7 +22,7 @@ Cat::Cat() : Animal()
 	return ;
 }
 
-Cat::Cat(Cat const & src) : Animal(src)
+Cat::Cat(Cat const & src) : AAnimal(src)
 {
 	std::cout << CYAN;
 	std::cout << "Cat copy constructor called" << std::endl;
@@ -48,7 +48,7 @@ Cat	& Cat::operator=(Cat const & rhs)
 	std::cout << "Cat assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		Animal::operator=(rhs);
+		AAnimal::operator=(rhs);
 		this->_type = rhs.getType();
 		this->_brain = rhs._brain;
 	}

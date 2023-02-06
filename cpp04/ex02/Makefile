@@ -13,7 +13,7 @@ NAME		:= Animal
 
 SRC_DIR		:= srcs
 SRCS		:= main.cpp \
-			Animal.cpp \
+			AAnimal.cpp \
 			Cat.cpp \
 			Dog.cpp \
 			Brain.cpp \

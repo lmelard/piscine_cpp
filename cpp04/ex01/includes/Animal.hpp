@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 14:43:32 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/03 17:59:33 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/06 11:09:06 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
 # define RESET		"\033[0m"
 # define BRED		"\033[1;31m"   
@@ -22,6 +23,8 @@
 # define BGREEN		"\033[1;92m"
 # define PURPLE		"\033[0;35m"
 # define CYAN		"\033[0;36m"
+# define YELLOW		"\033[0;33m"
+# define GREEN		"\033[0;32m"
 
 class Animal
 {

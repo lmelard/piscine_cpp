@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:20:23 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/03 20:07:20 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/06 13:59:34 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Dog::Dog() : Animal()
 	std::cout << GREEN;
 	std::cout << "Dog default constructor called" << std::endl;
 	this->_type = "Dog";
+	this->_brain = new Brain();
 	std::cout << RESET;
 	return ;
 }
@@ -27,6 +28,7 @@ Dog::Dog(Dog const & src) : Animal(src)
 	std::cout << "Dog copy constructor called" << std::endl;
 	*this = src;
 	this->_type = "Dog";
+	this->_brain = new Brain(*(src.getBrain()));
 	std::cout << RESET;
 	return ;
 }
@@ -35,15 +37,23 @@ Dog::~Dog(void)
 {
 	std::cout << GREEN;
 	std::cout << "Dog default destructor called" << std::endl;
+	delete this->_brain;
 	std::cout << RESET;
 	return ;
 }
 
 Dog	& Dog::operator=(Dog const & rhs)
 {
+	std::cout << GREEN;
+	std::cout << "Dog assignment operator called" << std::endl;
 	if (this != &rhs)
+	{
 		Animal::operator=(rhs);
-	return(*this);
+		this->_type = rhs.getType();
+		this->_brain = rhs._brain;
+	}
+	std::cout << RESET;
+	return (*this);
 }
 
 void Dog::makeSound(void) const
@@ -51,5 +61,10 @@ void Dog::makeSound(void) const
 	std::cout << GREEN;
 	std::cout << "wooooooof" << std::endl;
 	std::cout << RESET;
-	return;
+	return ;
+}
+
+Brain * Dog::getBrain(void) const
+{
+	return (this->_brain);
 }

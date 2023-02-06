@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongDog.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 15:42:29 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/03 19:24:14 by lmelard          ###   ########.fr       */
+/*   Created: 2023/02/03 21:26:38 by lmelard           #+#    #+#             */
+/*   Updated: 2023/02/06 14:02:26 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONG_DOG_HPP
-# define WRONG_DOG_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-# include "WrongAnimal.hpp"
-# include <iostream>
+#include <iostream>
 
 # define RESET		"\033[0m"
 # define BRED		"\033[1;31m"   
@@ -23,19 +22,22 @@
 # define BGREEN		"\033[1;92m"
 # define PURPLE		"\033[0;35m"
 # define CYAN		"\033[0;36m"
+# define YELLOW		"\033[0;33m"
 # define GREEN		"\033[0;32m"
 
-class WrongDog : public WrongAnimal
+class Brain
 {
 	public:
-		WrongDog(void);
-		WrongDog(WrongDog const & src);
-		virtual ~WrongDog();
+		Brain(void);
+		Brain(Brain const & src);
+		~Brain(void);
+
+		Brain & operator=(Brain const & rhs);
+		std::string	getIdea(int	const index) const;
+		void	setIdea(std::string const idea, int const i);
 		
-		WrongDog	& operator=(WrongDog const & rhs);
-		void makeSound(void) const;
 	private:
-		
+		std::string	_ideas[100];
 };
 
 #endif
