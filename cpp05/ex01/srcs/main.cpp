@@ -6,11 +6,12 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:09:40 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/07 19:33:26 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/07 21:21:27 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
@@ -76,22 +77,21 @@ int	main(void)
 
 	try
 	{
-		Bureaucrat lena("lena", 1);
-		Bureaucrat chris(lena);
-		Bureaucrat archi("archi", 45);
-		std::cout << BBLUE << lena << RESET;
-		std::cout << BYELLOW << chris << RESET;
-		chris.decreaseGrade();
-		std::cout << BBLUE << lena << RESET;
-		std::cout << BYELLOW << chris << RESET;
-		archi = lena;
-		std::cout << BRED << archi << RESET;
-		archi.increaseGrade();
-		std::cout << BRED << archi << RESET;
+		Form impots("impots", false, 5, 65);
+		std::cout << std::endl;
+		std::cout << impots;
+		std::cout << std::endl;
+		Bureaucrat billy("billy", 5);
+		std::cout << std::endl;
+		std::cout << billy << std::endl;
+		//impots.beSigned(billy);
+		std::cout << std::endl;
+		std::cout << impots << std::endl;
+		billy.signForm(impots);
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << BRED << e.what() << std::endl << RESET;
 	}
 	return (0);
 }
