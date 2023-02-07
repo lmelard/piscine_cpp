@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:03:33 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/06 15:54:22 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/06 17:45:43 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,5 @@ int	main(void)
 		std::cout << "chat first idea:   " << chatBrain->getIdea(0) << std::endl;
 		std::cout << "titi first idea:   " << titiBrain->getIdea(0) << std::endl << std::endl;
 	}
-	
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:21:09 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/06 14:13:29 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/07 14:41:18 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ Cat::Cat(Cat const & src) : Animal(src)
 {
 	std::cout << CYAN;
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = src;
-	this->_type = "Cat";
 	this->_brain = new Brain(*(src.getBrain()));
+	*this = src;
+	//this->_type = "Cat";
 	std::cout << RESET;
 	return ;
 }
