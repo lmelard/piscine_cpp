@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:37:36 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/08 15:02:26 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 19:01:21 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	AForm::beSigned(Bureaucrat const & buro)
 
 std::ostream & operator<<(std::ostream & o, AForm const & rhs)
 {
-	o << BBLUE << "AForm name: " << rhs.getName() << std::endl;
+	o << BBLUE << "Name: " << rhs.getName() << std::endl;
 	o << "Signed: " << rhs.getSign() << std::endl;
 	o << "Grade required to sign AForm: " << rhs.getSignGrade() << std::endl;
 	o << "Grade required to execute AForm: " << rhs.getExecGrade() << std::endl << RESET;

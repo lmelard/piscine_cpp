@@ -16,6 +16,8 @@ SRCS		:= main.cpp \
 			Bureaucrat.cpp \
 			AForm.cpp \
 			ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
 
 SRCS		:= $(addprefix $(SRC_DIR)/,$(SRCS))
 
@@ -66,7 +68,7 @@ $(NAME): $(OBJS)
 
 clean:
 	@$(RM) $(OBJS) $(DEPS)
-	$(RM) -r $(OBJ_DIR) $(DEP_DIR)
+	$(RM) -r $(OBJ_DIR) $(DEP_DIR) *_shrubbery
 	$(info REMOVED OBJS & DEPS)
 
 fclean: clean
