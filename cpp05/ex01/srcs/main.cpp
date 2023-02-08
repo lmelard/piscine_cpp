@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:09:40 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/07 21:21:27 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 14:13:20 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,78 +20,44 @@ int	main(void)
 	**	par un bloc try, alors le bloc catch associé n'est pas exécuté
 	**	et le programme continue son exécution normalement après le bloc try.
 	*/
+
+	/* SIGNED FORM */
 	
-	// try
-	// {
-	// 	/* GRADE TOO HIGH EXCEPTION */
-		
-	// 	// Bureaucrat lena("lena", 1);
-	// 	// std::cout << lena;
-	// 	// lena.increaseGrade(); // Grade too high exception
-	// 	// std::cout << lena;
-
-	// 	/* INCREASE / DECREASE GRADE */
-		
-	// 	// Bureaucrat lena("lena", 26);
-	// 	// std::cout << lena;
-	// 	// lena.increaseGrade();
-	// 	// std::cout << lena;
-	// 	// lena.increaseGrade();
-	// 	// std::cout << lena;
-	// 	// lena.decreaseGrade();
-	// 	// std::cout << lena;
-
-	// 	/* ASSIGNMENT */
-		
-	// 	// Bureaucrat lena("lena", 28);
-	// 	// Bureaucrat chris("chris", 8);
-	// 	// std::cout << std::endl << lena;
-	// 	// std::cout << chris;
-	// 	// chris = lena;
-	// 	// std::cout << lena;
-	// 	// std::cout << chris << std::endl;
-
-	// 	/* COPY CONSTRUCTOR + ASSIGNMENT + EXCEPTION */
-
-	// 	Bureaucrat lena("lena", 1);
-	// 	Bureaucrat chris(lena);
-	// 	Bureaucrat archi("archi", 45);
-	// 	std::cout << BBLUE << lena << RESET;
-	// 	std::cout << BYELLOW << chris << RESET;
-	// 	chris.decreaseGrade();
-	// 	std::cout << BBLUE << lena << RESET;
-	// 	std::cout << BYELLOW << chris << RESET;
-	// 	archi = lena;
-	// 	std::cout << BRED << archi << RESET;
-	// 	archi.increaseGrade();
-	// 	std::cout << BRED << archi << RESET;
-	// }
-	// catch(const Bureaucrat::GradeTooHighException& e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-	// catch(const Bureaucrat::GradeTooLowException& e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
 	try
 	{
 		Form impots("impots", false, 5, 65);
-		std::cout << std::endl;
-		std::cout << impots;
-		std::cout << std::endl;
+		std::cout << std::endl << impots << std::endl;
 		Bureaucrat billy("billy", 5);
 		std::cout << std::endl;
 		std::cout << billy << std::endl;
-		//impots.beSigned(billy);
-		std::cout << std::endl;
-		std::cout << impots << std::endl;
 		billy.signForm(impots);
+		std::cout << std::endl << impots << std::endl << std::endl;
+		
+		/* COPY CONSTRUCTOR */
+		Form tax(impots);
+		std::cout << std::endl << tax << std::endl;
+		tax.setSign(false);
+		std::cout << std::endl << tax << std::endl;
+		Bureaucrat charles("charles", 9);
+		charles.signForm(tax);
+		std::cout << std::endl << impots << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << BRED << e.what() << std::endl << RESET;
 	}
+
+	/* INVALID PARAMETERS */
+	
+	// try
+	// {
+	// 	//Form impots("impots", false, 151, 65);
+	// 	Form impots("impots", false, 150, 0);
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cout << BRED << e.what() << std::endl << RESET;
+	// }
+	
 	return (0);
 }

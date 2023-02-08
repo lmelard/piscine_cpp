@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:12:04 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/07 21:30:15 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 13:46:27 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,16 +92,23 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs)
 
 void	Bureaucrat::signForm(Form & form) const
 {
-	// if (form.getSign() == true)
-	// 	std::cout << this->_name << " signed " << form.getName() << std::endl;
-	// else
-	// 	std::cout << this->_name << " couldn't sign " << form.getName() << std::endl;
-
-	try catch;
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << BRED << this->_name << " couldn't sign ";
+		std::cout << form.getName() << " because " << e.what();
+		std::cout << "." << std::endl << RESET;
+		return ;
+	}
+		std::cout << BGREEN << this->_name << " signed " << form.getName() << std::endl << RESET;
+	return ;
 }
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs)
 {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
 	return o;
-}
+}	

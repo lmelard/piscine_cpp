@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:10:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/07 21:17:17 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 14:01:33 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Bureaucrat
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("Grade too high ! Must be 1 max and between 150 and 1 !");
+					return ("Bureaucrat: Grade too high !");
 				}
 		};
 		class GradeTooLowException : public std::exception
@@ -46,7 +46,7 @@ class Bureaucrat
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("Grade too low ! Must be 150 min and between 150 and 1 !");
+					return ("Bureaucrat: Grade too low !");
 				}
 		};
 		Bureaucrat(void);

@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:36:56 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/07 21:27:24 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 14:00:53 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Form
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("Grade too high !");
+					return ("Form: Grade too high !");
 				}
 		};
 		
@@ -51,7 +51,7 @@ class Form
 			public:
 				virtual const char * what() const throw()
 				{
-					return ("Grade too low !");
+					return ("Form: Grade too low !");
 				}
 		};
 

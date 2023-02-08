@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 19:37:36 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/07 20:58:01 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 13:58:59 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ Form::Form() : _name(""), _sign(false), _signGrade(150), _execGrade(150)
 Form::Form(std::string const name, bool sign, int const signGrade, int const execGrade) : _name(name), _sign(sign), _signGrade(signGrade), _execGrade(execGrade)
 {
 	std::cout << "Form " << name << " constructor called" << std::endl;
+	if (signGrade < 1 || execGrade < 1)
+		throw Form::GradeTooHighException();
+	else if (signGrade > 150 || execGrade > 150)
+		throw Form::GradeTooLowException();
 	return ;
 }
 
@@ -84,9 +88,9 @@ void	Form::beSigned(Bureaucrat const & buro)
 
 std::ostream & operator<<(std::ostream & o, Form const & rhs)
 {
-	o << "Form name: " << rhs.getName() << std::endl;
+	o << BBLUE << "Form name: " << rhs.getName() << std::endl;
 	o << "Signed: " << rhs.getSign() << std::endl;
 	o << "Grade required to sign form: " << rhs.getSignGrade() << std::endl;
-	o << "Grade required to execute form: " << rhs.getExecGrade() << std::endl;
+	o << "Grade required to execute form: " << rhs.getExecGrade() << std::endl << RESET;
 	return o;
 }
