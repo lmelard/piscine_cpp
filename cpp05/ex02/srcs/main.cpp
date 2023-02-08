@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:09:40 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/08 20:19:51 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 20:46:44 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,50 +147,71 @@ int	main(void)
 	// 	return 1;
 	// }
 	
+	// try
+	// {
+	// 	PresidentialPardonForm* prez = new PresidentialPardonForm("prez");
+	// 	try
+	// 	{
+	// 		Bureaucrat lena("lena", 5); //138
+	// 		std::cout << "before beSigned: " << std::endl;
+	// 		std::cout << std::endl << *prez << std::endl;
+	// 		try
+	// 		{
+	// 			prez->beSigned(lena);
+	// 			std::cout << "after beSigned: " << std::endl;
+	// 			std::cout << std::endl << *prez << std::endl;
+	// 			try
+	// 			{
+	// 				prez->execute(lena);
+	// 				//prez->execute(lena);
+	// 			}
+	// 			catch(const std::exception& e)
+	// 			{
+	// 				delete prez;
+	// 				std::cout << BRED << e.what() << std::endl << RESET;
+	// 				return 1;
+	// 			}
+				
+	// 		}
+	// 		catch(const std::exception& e)
+	// 		{
+	// 			delete prez;
+	// 			std::cout << BRED << e.what() << std::endl << RESET;
+	// 			return 1;
+	// 		}
+			
+	// 	}
+	// 	catch(const std::exception& e)
+	// 	{
+	// 		std::cout << BRED << e.what() << std::endl << RESET;
+	// 	}	
+	// delete prez;
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cout << BRED << e.what() << std::endl << RESET;
+	// 	return 1;
+	// }
+
 	try
 	{
-		PresidentialPardonForm* prez = new PresidentialPardonForm("prez");
-		try
-		{
-			Bureaucrat lena("lena", 5); //138
-			std::cout << "before beSigned: " << std::endl;
-			std::cout << std::endl << *prez << std::endl;
-			try
-			{
-				prez->beSigned(lena);
-				std::cout << "after beSigned: " << std::endl;
-				std::cout << std::endl << *prez << std::endl;
-				try
-				{
-					prez->execute(lena);
-					//prez->execute(lena);
-				}
-				catch(const std::exception& e)
-				{
-					delete prez;
-					std::cout << BRED << e.what() << std::endl << RESET;
-					return 1;
-				}
-				
-			}
-			catch(const std::exception& e)
-			{
-				delete prez;
-				std::cout << BRED << e.what() << std::endl << RESET;
-				return 1;
-			}
-			
-		}
-		catch(const std::exception& e)
-		{
-			std::cout << BRED << e.what() << std::endl << RESET;
-		}	
-	delete prez;
+		Bureaucrat lena("lena", 6);
+		PresidentialPardonForm prez("prez");
+		lena.signForm(prez);
+		lena.executeForm(prez);
+		RobotomyRequestForm robot("robot");
+		lena.signForm(robot);
+		lena.executeForm(robot);
+		lena.executeForm(robot);
+		lena.executeForm(robot);
+		ShrubberyCreationForm shrub("shrub");
+		lena.signForm(shrub);
+		lena.executeForm(shrub);
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << BRED << e.what() << std::endl << RESET;
-		return 1;
 	}
+	
 	return (0);
 }

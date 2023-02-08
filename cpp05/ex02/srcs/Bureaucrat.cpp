@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:12:04 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/08 17:47:20 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 20:43:32 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,3 +112,18 @@ std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs)
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
 	return o;
 }	
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << BRED << e.what() << std::endl << RESET;
+		return ;
+	}
+	std::cout << this->_name << " executed " << form.getName();
+	return ;
+}

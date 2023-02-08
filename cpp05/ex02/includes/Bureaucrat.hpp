@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:10:15 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/08 17:47:18 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 20:38:24 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ class Bureaucrat
 		void	decreaseGrade(void);
 
 		void	signForm(AForm & form) const;
+
+		void	executeForm(AForm const & form);
 	
 	private:
 	
