@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:09:40 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/08 20:46:44 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/08 20:48:28 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,26 @@
 
 int	main(void)
 {
+	try
+	{
+		Bureaucrat lena("lena", 6);
+		PresidentialPardonForm prez("prez");
+		lena.signForm(prez);
+		lena.executeForm(prez);
+		RobotomyRequestForm robot("robot");
+		lena.signForm(robot);
+		lena.executeForm(robot);
+		lena.executeForm(robot);
+		lena.executeForm(robot);
+		ShrubberyCreationForm shrub("shrub");
+		lena.signForm(shrub);
+		lena.executeForm(shrub);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << BRED << e.what() << std::endl << RESET;
+	}
+	
 	/* SIGNED FORM */
 	
 	// try
@@ -192,26 +212,6 @@ int	main(void)
 	// 	std::cout << BRED << e.what() << std::endl << RESET;
 	// 	return 1;
 	// }
-
-	try
-	{
-		Bureaucrat lena("lena", 6);
-		PresidentialPardonForm prez("prez");
-		lena.signForm(prez);
-		lena.executeForm(prez);
-		RobotomyRequestForm robot("robot");
-		lena.signForm(robot);
-		lena.executeForm(robot);
-		lena.executeForm(robot);
-		lena.executeForm(robot);
-		ShrubberyCreationForm shrub("shrub");
-		lena.signForm(shrub);
-		lena.executeForm(shrub);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << BRED << e.what() << std::endl << RESET;
-	}
 	
 	return (0);
 }
