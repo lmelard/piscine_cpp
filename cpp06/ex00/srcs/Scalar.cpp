@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 20:44:12 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/10 21:41:35 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/10 21:56:12 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,105 @@ void	Scalar::idType(void)
 	return ;
 }
 
+void	Scalar::_printCharCase(void)
+{
+	std::string str = this->_input;
+	this->_c = static_cast<char>(str[0]);
+	std::cout << "char: " << this->_c << std::endl;
+	std::cout << "int: " << static_cast<int>(this->_c) << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float: " << static_cast<float>(this->_c) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(this->_c) << std::endl;
+	return ;
+}
+
+void	Scalar::_printInfCase(void)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << this->_input << "f" << std::endl;
+	std::cout << "double: " << this->_input << std::endl;
+	return ;
+}
+
+void	Scalar::_printFloatCase(void)
+{
+	std::string str = this->_input;
+	this->_value = std::atof(this->_input.c_str());
+	if (this->_value < std::numeric_limits<float>::min() || 
+		this->_value > std::numeric_limits<float>::max())
+		this->_printNonDisplayable();
+	else
+	{
+		this->_f = static_cast<float>(this->_value);
+		this->_i = static_cast<int>(this->_f);
+		if (this->_i < 32 || this->_i >= 126)
+			std::cout << "char: " << "Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(this->_i) << "'" << std::endl;
+		std::cout << "int: " << this->_i << std::endl;
+		std::cout << std::fixed << std::setprecision(str.size() - this->_coma - 2);
+		std::cout << "float: " << static_cast<float>(this->_f) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(this->_f) << std::endl;
+	}
+}
+
+void	Scalar::_printDoubleCase(void)
+{
+	std::string str = this->_input;
+	this->_value = std::atof(this->_input.c_str());
+	if (this->_value < std::numeric_limits<double>::min() ||
+		this->_value > std::numeric_limits<double>::max())
+		this->_printNonDisplayable();
+	else
+	{
+		this->_d = static_cast<double>(this->_value);
+		this->_i = static_cast<int>(this->_d);
+		if (this->_i < 32 || this->_i >= 126)
+			std::cout << "char: " << "Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(this->_d) << "'" << std::endl;
+		this->_li = std::atol((this->_input).c_str());
+		if (this->_li < std::numeric_limits<int>::min() || this->_li > std::numeric_limits<int>::max())
+			std::cout << "int: Non displayable" << std::endl;
+		else
+			std::cout << "int: " << this->_i << std::endl;
+		std::cout << std::fixed << std::setprecision(str.size() - this->_coma - 1);
+		std::cout << "float: " << static_cast<float>(this->_d) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(this->_d) << std::endl;
+	}
+}
+
+void	Scalar::_printIntCase(void)
+{
+	std::string str = this->_input;
+	this->_li = std::atol((this->_input).c_str());
+	if (this->_li < std::numeric_limits<int>::min() || this->_li > std::numeric_limits<int>::max())
+		this->_printNonDisplayable();
+	else
+	{
+		this->_i = static_cast<int>(this->_li);
+		if (this->_i < 32 || this->_i >= 126)
+			std::cout << "char: " << "Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(this->_i) << "'" << std::endl;
+		std::cout << "int: " << this->_i << std::endl;
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << "float: " << static_cast<float>(this->_i) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(this->_i) << std::endl;
+	}
+	return ;
+}
+
+void	Scalar::_printNonDisplayable(void) const
+{
+	std::cout << "char: Non displayable" << std::endl;
+	std::cout << "int: Non displayable" << std::endl;
+	std::cout << "float: Non displayable" << std::endl;
+	std::cout << "double: Non displayable" << std::endl;
+	return ;
+}
+
 void	Scalar::convert(void)
 {
 	std::string str;
@@ -175,99 +274,27 @@ void	Scalar::convert(void)
 	{
 		case (INF):
 		{
-			std::cout << "char: impossible" << std::endl;
-			std::cout << "int: impossible" << std::endl;
-			std::cout << "float: " << this->_input << "f" << std::endl;
-			std::cout << "double: " << this->_input << std::endl; 
+			this->_printInfCase();
 			break;
 		}
 		case (CHAR):
 		{
-			this->_c = static_cast<char>(str[0]);
-			std::cout << "char: " << this->_c << std::endl;
-			std::cout << "int: " << static_cast<int>(this->_c) << std::endl;
-			std::cout << std::fixed << std::setprecision(1);
-			std::cout << "float: " << static_cast<float>(this->_c) << "f" << std::endl;
-			std::cout << "double: " << static_cast<double>(this->_c) << std::endl;
+			this->_printCharCase();
 			break;
 		}
 		case (INT):
 		{
-			this->_li = std::atol((this->_input).c_str());
-			if (this->_li < std::numeric_limits<int>::min() || this->_li > std::numeric_limits<int>::max())
-			{	
-				std::cout << "char: Non displayable" << std::endl;
-				std::cout << "int: Non displayable" << std::endl;
-				std::cout << "float: Non displayable" << std::endl;
-				std::cout << "double: Non displayable" << std::endl;
-			}
-			else
-			{
-				this->_i = static_cast<int>(this->_li);
-				if (this->_i < 32 || this->_i >= 126)
-					std::cout << "char: " << "Non displayable" << std::endl;
-				else
-					std::cout << "char: '" << static_cast<char>(this->_i) << "'" << std::endl;
-				std::cout << "int: " << this->_i << std::endl;
-				std::cout << std::fixed << std::setprecision(1);
-				std::cout << "float: " << static_cast<float>(this->_i) << "f" << std::endl;
-				std::cout << "double: " << static_cast<double>(this->_i) << std::endl;
-			}
+			this->_printIntCase();
 			break;
 		}
 		case (FLOAT):
 		{
-			this->_value = std::atof(this->_input.c_str());
-			if (this->_value < std::numeric_limits<float>::min() || this->_value > std::numeric_limits<float>::max())
-			{
-				std::cout << "char: Non displayable" << std::endl;
-				std::cout << "int: Non displayable" << std::endl;
-				std::cout << "float: Non displayable" << std::endl;
-				std::cout << "double: Non displayable" << std::endl;
-			}
-			else
-			{
-				this->_f = static_cast<float>(this->_value);
-				this->_i = static_cast<int>(this->_f);
-				if (this->_i < 32 || this->_i >= 126)
-					std::cout << "char: " << "Non displayable" << std::endl;
-				else
-					std::cout << "char: '" << static_cast<char>(this->_i) << "'" << std::endl;
-				std::cout << "int: " << this->_i << std::endl;
-				std::cout << std::fixed << std::setprecision(str.size() - this->_coma - 2);
-				std::cout << "float: " << static_cast<float>(this->_f) << "f" << std::endl;
-				std::cout << "double: " << static_cast<double>(this->_f) << std::endl;
-			}
+			this->_printFloatCase();
 			break;
 		}
 		case (DOUBLE):
 		{
-			this->_value = std::atof(this->_input.c_str());
-			if (this->_value < std::numeric_limits<double>::min() ||
-				this->_value > std::numeric_limits<double>::max())
-			{
-				std::cout << "char: Non displayable" << std::endl;
-				std::cout << "int: Non displayable" << std::endl;
-				std::cout << "float: Non displayable" << std::endl;
-				std::cout << "double: Non displayable" << std::endl;
-			}
-			else
-			{
-				this->_d = static_cast<double>(this->_value);
-				this->_i = static_cast<int>(this->_d);
-				if (this->_i < 32 || this->_i >= 126)
-					std::cout << "char: " << "Non displayable" << std::endl;
-				else
-					std::cout << "char: '" << static_cast<char>(this->_d) << "'" << std::endl;
-				this->_li = std::atol((this->_input).c_str());
-				if (this->_li < std::numeric_limits<int>::min() || this->_li > std::numeric_limits<int>::max())
-					std::cout << "int: Non displayable" << std::endl;
-				else
-					std::cout << "int: " << this->_i << std::endl;
-				std::cout << std::fixed << std::setprecision(str.size() - this->_coma - 1);
-				std::cout << "float: " << static_cast<float>(this->_d) << "f" << std::endl;
-				std::cout << "double: " << static_cast<double>(this->_d) << std::endl;
-			}
+			this->_printDoubleCase();
 			break;
 		}
 		default:

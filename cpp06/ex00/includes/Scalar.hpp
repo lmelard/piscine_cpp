@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 20:43:05 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/10 20:15:07 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/10 21:55:53 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,14 @@ class Scalar
 		bool _isDouble(void);
 		bool _isFloat(void);
 		bool _isInf(void);
+
+		void	_printCharCase(void);
+		void	_printInfCase(void);
+		void	_printFloatCase(void);
+		void	_printDoubleCase(void);
+		void	_printIntCase(void);
+
+		void	_printNonDisplayable(void) const;
 
 		long double _value;
 		char		_c;
