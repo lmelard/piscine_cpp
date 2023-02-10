@@ -13,6 +13,7 @@ NAME		:= convert
 
 SRC_DIR		:= srcs
 SRCS		:= main.cpp \
+			Scalar.cpp \
 
 SRCS		:= $(addprefix $(SRC_DIR)/,$(SRCS))
 

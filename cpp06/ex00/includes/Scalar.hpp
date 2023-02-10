@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 20:43:05 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/09 21:41:57 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/10 20:15:07 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 # define SCALAR_HPP
 
 # include <iostream>
+# include <cstdlib>
+# include <iomanip>
+# include <limits>
+# include <climits>
 
-enum class Type
+enum Type
 {
-	INT = 0,
-	CHAR = 1,
-	FLOAT = 2,
-	DOUBLE = 3,
+	INT = 1,
+	CHAR = 2,
+	FLOAT = 3,
+	DOUBLE = 4,
+	INF = 5,
 };
 
 class Scalar
@@ -32,7 +37,8 @@ class Scalar
 		Scalar(Scalar const & src);
 		~Scalar();
 		
-		Type	getType(void) const;
+		Type	getType(void) const;	// identifie le type
+		void	convert(void); 			// convertit la string dans son type
 		
 		Scalar & operator=(Scalar const & rhs);
 
@@ -46,15 +52,19 @@ class Scalar
 		bool _isInt(void);
 		bool _isDouble(void);
 		bool _isFloat(void);
+		bool _isInf(void);
 
-		char	_c;
-		double	_d;
-		float	_f;
-		int		_i;
+		long double _value;
+		char		_c;
+		double		_d;
+		float		_f;
+		int			_i;
+		long int	_li;
+
+
+		int	_coma;
 
 		Type _type;
-		
 };
-
 
 #endif
