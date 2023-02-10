@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 18:30:09 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/10 22:06:39 by lmelard          ###   ########.fr       */
+/*   Created: 2023/02/10 22:12:28 by lmelard           #+#    #+#             */
+/*   Updated: 2023/02/10 22:26:53 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <sstream>
-#include "Scalar.hpp"
+#ifndef DATA_HPP
+# define DATA_HPP
 
-int	main(int ac, char **av)
+class Data
 {
-	if (ac == 2)
-	{
-		std::string	arg = av[1];
-		Scalar scalar(arg);
-		scalar.idType();
-		scalar.convert();
-	}
-	else
-		std::cout << "the program takes 1 argument" << std::endl;
-	return (0);
-}
+	public:
+		Data(void);
+		~Data();
+	private:
+		/* data */
+};
+
+#endif

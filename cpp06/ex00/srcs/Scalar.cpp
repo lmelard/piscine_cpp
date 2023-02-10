@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 20:44:12 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/10 21:56:12 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/10 22:08:50 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ Scalar::~Scalar(void)
 
 Scalar::Scalar(std::string const input) : _input(input)
 {
-	return ;std::string str;
-	str = this->_input;
+	return ;
 }
 
 Scalar::Scalar(Scalar const & src)
