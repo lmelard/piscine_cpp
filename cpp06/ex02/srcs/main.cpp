@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 12:58:47 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/11 14:43:53 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/11 15:11:45 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ Base * generate(void)
 		std::cout << "A instantiated" << std::endl;
 		return (dynamic_cast<Base*>(a));
 	}
-	if (i == 1)
+	else if (i == 1)
 	{
 		B* b = new B;
 		std::cout << "B instantiated" << std::endl;
 		return (dynamic_cast<Base*>(b));
 	}
-	if (i == 2)
+	else if (i == 2)
 	{
 		C* c = new C;
 		std::cout << "C instantiated" << std::endl;
@@ -66,13 +66,10 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	A a;
-	B b;
-	C c;
-
 	try
 	{
-		a = dynamic_cast<A&>(p);
+		A& a = dynamic_cast<A&>(p);
+		(void)a;
 		std::cout << "Type A identified from a Base&" << std::endl;
 		return ;
 	}
@@ -82,7 +79,8 @@ void identify(Base& p)
 	}
 	try
 	{
-		b = dynamic_cast<B&>(p);
+		B& b = dynamic_cast<B&>(p);
+		(void)b;
 		std::cout << "Type B identified from a Base&" << std::endl;
 		return ;
 	}
@@ -92,7 +90,8 @@ void identify(Base& p)
 	}
 	try
 	{
-		c = dynamic_cast<C&>(p);
+		C& c = dynamic_cast<C&>(p);
+		(void)c;
 		std::cout << "Type C identified from a Base&" << std::endl;
 		return ;
 	}
