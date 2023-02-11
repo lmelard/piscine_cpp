@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 12:58:47 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/11 13:23:20 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/11 14:43:53 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,100 @@
 #include "B.hpp"
 #include "C.hpp"
 #include <iostream>
-
-//implicit upcast = OK 
+#include <cstdlib>
+#include <ctime>
 
 Base * generate(void)
 {
-	//srand()
+	srand(time(0));
+	int i = rand()%3;
+	if (i == 0)
+	{
+		A* a = new A;
+		std::cout << "A instantiated" << std::endl;
+		return (dynamic_cast<Base*>(a));
+	}
+	if (i == 1)
+	{
+		B* b = new B;
+		std::cout << "B instantiated" << std::endl;
+		return (dynamic_cast<Base*>(b));
+	}
+	if (i == 2)
+	{
+		C* c = new C;
+		std::cout << "C instantiated" << std::endl;
+		return (dynamic_cast<Base*>(c));
+	}
+	return (0);
 }
 
 void identify(Base* p)
 {
-	Base* random = generate();
 	A* a;
 	B* b;
 	C* c;
 	
-	a = dynamic_cast<A*>(random);
-	b = dynamic_cast<B*>(random);
-	c = dynamic_cast<C*>(random);
+	a = dynamic_cast<A*>(p);
+	b = dynamic_cast<B*>(p);
+	c = dynamic_cast<C*>(p);
 	
 	if (a)
-		std::cout << "Type A identified" << std::endl;
+		std::cout << "Type A identified from a Base*" << std::endl;
 	else if (b)
-		std::cout << "Type B identified" << std::endl;
+		std::cout << "Type B identified from a Base*" << std::endl;
 	else if (c)
-		std::cout << "Type C identified" << std::endl;
+		std::cout << "Type C identified from a Base*" << std::endl;
+	else
+		std::cout << "Dynamic cast error!" << std::endl;
 	return ;
 }
 
 void identify(Base& p)
 {
-	
+	A a;
+	B b;
+	C c;
+
+	try
+	{
+		a = dynamic_cast<A&>(p);
+		std::cout << "Type A identified from a Base&" << std::endl;
+		return ;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Cast error: Base& is not a Type A" << std::endl;
+	}
+	try
+	{
+		b = dynamic_cast<B&>(p);
+		std::cout << "Type B identified from a Base&" << std::endl;
+		return ;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Cast error: Base& is not a Type B" << std::endl;
+	}
+	try
+	{
+		c = dynamic_cast<C&>(p);
+		std::cout << "Type C identified from a Base&" << std::endl;
+		return ;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Cast error: Base& is not a Type C" << std::endl;
+	}
 }
 
 int	main(void)
 {
 	Base* random = generate();
+
+	identify(random);
+	identify(*random);
 	
-	
+	delete random;
 	return (0);
 }
