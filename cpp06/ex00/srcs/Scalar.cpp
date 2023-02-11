@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 20:44:12 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/10 22:08:50 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/11 11:49:28 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,18 +182,35 @@ void	Scalar::_printInfCase(void)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << this->_input << "f" << std::endl;
-	std::cout << "double: " << this->_input << std::endl;
+	if (this->_input.compare("inff") == 0 || this->_input.compare("-inff") == 0 ||
+	 	this->_input.compare("nanf") == 0 || this->_input.compare("+inff") == 0)
+		{
+			std::cout << "float: " << this->_input << std::endl;
+			std::string str = this->_input;
+			std::cout << "double: " << str.erase((str.size() - 1), 1) << std::endl; 
+		}
+	else
+	{
+		std::cout << "float: " << this->_input << "f" << std::endl;
+		std::cout << "double: " << this->_input << std::endl;
+	}
 	return ;
 }
 
 void	Scalar::_printFloatCase(void)
 {
 	std::string str = this->_input;
+	// std::cout << str << std::endl;
+	// str.erase(this->_input.size() - 1, 1);
+	// std::cout << str << std::endl;
 	this->_value = std::atof(this->_input.c_str());
-	if (this->_value < std::numeric_limits<float>::min() || 
+	//std::cout << "coucou " << this->_value << std::endl;
+	if (this->_value < -std::numeric_limits<float>::max() || 
 		this->_value > std::numeric_limits<float>::max())
-		this->_printNonDisplayable();
+		{
+			std::cout << "test" << std::endl;
+			this->_printNonDisplayable();
+		}
 	else
 	{
 		this->_f = static_cast<float>(this->_value);
@@ -213,7 +230,7 @@ void	Scalar::_printDoubleCase(void)
 {
 	std::string str = this->_input;
 	this->_value = std::atof(this->_input.c_str());
-	if (this->_value < std::numeric_limits<double>::min() ||
+	if (this->_value < -std::numeric_limits<double>::max() ||
 		this->_value > std::numeric_limits<double>::max())
 		this->_printNonDisplayable();
 	else
@@ -234,7 +251,7 @@ void	Scalar::_printDoubleCase(void)
 		std::cout << "double: " << static_cast<double>(this->_d) << std::endl;
 	}
 }
-
+ 
 void	Scalar::_printIntCase(void)
 {
 	std::string str = this->_input;
