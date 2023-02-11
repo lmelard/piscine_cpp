@@ -13,7 +13,6 @@ NAME		:= serialize
 
 SRC_DIR		:= srcs
 SRCS		:= main.cpp \
-			Data.cpp \
 
 SRCS		:= $(addprefix $(SRC_DIR)/,$(SRCS))
 
