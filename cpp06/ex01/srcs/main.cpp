@@ -6,13 +6,14 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:10:20 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/11 12:44:10 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/11 12:46:51 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.hpp"
 
-/* A pointer can be converted to any integral type large enough 
+/* 
+** A pointer can be converted to any integral type large enough 
 ** to hold all values of its type (e.g. to std::uintptr_t)
 */
 
