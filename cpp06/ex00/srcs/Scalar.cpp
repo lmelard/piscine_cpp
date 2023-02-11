@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 20:44:12 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/11 11:49:28 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/11 11:56:29 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ bool Scalar::_isInt(void)
 			break;
 		i = j;
 	}
-	if (i == str.size() - 1)
+	if (i == str.size() - 1 && this->isDigit(str[i]) == true)
 		return true;
 	return false;
 }
@@ -200,11 +200,7 @@ void	Scalar::_printInfCase(void)
 void	Scalar::_printFloatCase(void)
 {
 	std::string str = this->_input;
-	// std::cout << str << std::endl;
-	// str.erase(this->_input.size() - 1, 1);
-	// std::cout << str << std::endl;
 	this->_value = std::atof(this->_input.c_str());
-	//std::cout << "coucou " << this->_value << std::endl;
 	if (this->_value < -std::numeric_limits<float>::max() || 
 		this->_value > std::numeric_limits<float>::max())
 		{
