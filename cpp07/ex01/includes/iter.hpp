@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 11:57:12 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/12 12:17:35 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/12 17:16:32 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 
 template< typename T >
-void	iter(T * array, int size, void(*f)(T &))
+void	iter(T * array, int size, void(*f)(T const &))
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -25,8 +25,8 @@ void	iter(T * array, int size, void(*f)(T &))
 	return ;
 }
 
-template < typename T>
-void	print(T & x)
+template< typename T>
+void	print(T const & x)
 {
 	std::cout << x << std::endl;
 	return ;
