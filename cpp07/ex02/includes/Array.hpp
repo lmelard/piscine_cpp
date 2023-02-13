@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 13:49:04 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/12 17:32:02 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/13 21:33:21 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ Array<T> & Array<T>::operator=(Array<T> const & rhs)
 	return (*this);
 }
 
-// renvoie une exception si jamais cela ne fonctonne pas
+// renvoie une exception si jamais cela ne fonctionne pas
 template< typename T >
 T &	Array<T>::operator[](unsigned int i)
 {
