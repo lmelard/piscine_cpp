@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:00:48 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/13 20:18:41 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/14 16:06:55 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,6 @@ unsigned int	Span::shortestSpan(void) const
 	std::vector<int> tmp = this->_v;
 	std::sort(tmp.begin(), tmp.end());
 	int shortest = std::abs(tmp[1] - tmp[0]);
-
-	// // a supprimer
-	// std::cout << "after sorted" << std::endl;
-	// for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end() ; it++)
-	// {
-	// 	std::cout << *it << std::endl;
-	// }
-	// std::vector<int>::iterator it = tmp.begin();
-	// it++;
-	//return (*it - tmp[0]);
-
 	for (std::vector<int>::iterator it = ++tmp.begin(); it != tmp.end(); it++)
 	{
 		if (std::abs(*it - *(it - 1)) < shortest)
@@ -105,17 +94,8 @@ unsigned int Span::longestSpan(void) const
 	if (this->_v.size() < 2)
 		throw Span::NoSpan();
 	std::vector<int> tmp = this->_v;
-	
-	// // a supprimer
-	// auto result = std::minmax(tmp.begin(), tmp.end());
-	// std::cout << "min is " << *result.first;
-	// std::cout << ", at position " << (result.first-tmp.begin()) << std::endl;
-	// std::cout << "max is " << *result.second;
-	// std::cout << ", at position " << (result.second-tmp.begin()) << std::endl;
-	
 	int	max = *std::max_element(tmp.begin(), tmp.end());
 	int	min = *std::min_element(tmp.begin(), tmp.end());
-	// std::cout << "longest span= " << max - min << std::endl;
 	return (std::abs(max - min));
 }
 

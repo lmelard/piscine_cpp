@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:22:25 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/13 14:44:08 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:59:43 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,31 @@ pour y acceder directement ou grace a des iterateurs*/
 
 int	main(void)
 {
-	std::vector<int> v;
-	std::vector<int>::iterator itr;
+	{
+		std::vector<int> v;
 
-	v.push_back(0);
-	v.push_back(45);
-	v.push_back(2);
-	v.push_back(56);
-	v.push_back(-1212);
-	v.push_back(5);
-	
-	try
-	{
-		itr = easyfind(v, 56);
-		std::cout << "value found: " << *itr << std::endl;
-		std::cout << "index of the element: " << std::distance(v.begin(), itr) << std::endl;
-		itr = easyfind(v, -1212);
-		std::cout << "value found: " << *itr << std::endl;
-		std::cout << "index of the element: " << std::distance(v.begin(), itr) << std::endl;
-		itr = easyfind(v, 89);
-		std::cout << "value found: " << *itr << std::endl;
-		std::cout << "index of the element: " << std::distance(v.begin(), itr) << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
+		v.push_back(5);
+		v.push_back(45);
+		v.push_back(2);
+		v.push_back(56);
+		v.push_back(2);
+		v.push_back(5);
+		
+		try
+		{
+			std::cout << "value found: " << *easyfind(v, 56) << std::endl;
+			std::cout << "value found: " << *easyfind(v, 5) << std::endl;
+			std::cout << "value found: " << *easyfind(v, -4562) << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
 
 	std::cout << std::endl;
 	
 	std::list<int> l;
-	std::list<int>::iterator i;
 
 	l.push_back(55);
 	l.push_back(12);
@@ -62,15 +56,9 @@ int	main(void)
 	
 	try
 	{
-		i = easyfind(l, 0);
-		std::cout << "value found: " << *i << std::endl;
-		std::cout << "index of the element: " << std::distance(l.begin(), i) << std::endl;
-		i = easyfind(l, -1212);
-		std::cout << "value found: " << *i << std::endl;
-		std::cout << "index of the element: " << std::distance(l.begin(), i) << std::endl;
-		i = easyfind(l, 89);
-		std::cout << "value found: " << *i << std::endl;
-		std::cout << "index of the element: " << std::distance(l.begin(), i) << std::endl;
+		std::cout << "value found: " << *easyfind(l, -89556) << std::endl;
+		std::cout << "value found: " << *easyfind(l, 12) << std::endl;
+		std::cout << "value found: " << *easyfind(l, -2) << std::endl;
 	}
 	catch(const std::exception& e)
 	{

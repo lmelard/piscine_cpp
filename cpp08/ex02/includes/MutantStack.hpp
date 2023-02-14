@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 20:40:39 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/14 14:03:54 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/14 14:48:28 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,15 @@ class MutantStack : public std::stack<T>
 		
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
-		// typedef typename std::stack<T>::container_type::const_iterator const_iterator; c++11
-		// typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 		
 		iterator				begin();
 		iterator				end();
 		reverse_iterator		rbegin();
 		reverse_iterator		rend();
-		// const_iterator			cbegin();
-		// const_iterator			cend();
-		// const_reverse_iterator	crbegin();
-		// const_reverse_iterator	crend();
 
 	private:
 		
 };
-
 
 template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>()

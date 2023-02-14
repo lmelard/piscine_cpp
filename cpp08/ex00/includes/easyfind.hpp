@@ -6,7 +6,7 @@
 /*   By: lmelard <lmelard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 10:53:33 by lmelard           #+#    #+#             */
-/*   Updated: 2023/02/13 14:02:22 by lmelard          ###   ########.fr       */
+/*   Updated: 2023/02/14 15:59:29 by lmelard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <algorithm>
 
 /* Utilisation de la STL (containers) et d'algorithm avec find*/
-/* 
-** Iterator: objet qui permet de pointer sur un element 
+/*
+** Iterator: objet qui permet de pointer sur un element
 ** appartenant a un range d'elements (ex tableau ou container)
-** on peut iterer sur les elements en utilisant des operateurs 
+** on peut iterer sur les elements en utilisant des operateurs
 
 ** On declare l'iterateur de cette maniere vector<int>:: iterator it
 ** mais on l'utilsie comme un pointeur en l'incrementant de cette maniere par ex it++
@@ -40,13 +40,11 @@ class NoOccurence : public std::exception
 };
 
 template < typename T >
-typename T::iterator easyfind(T& x, int nb)
+typename T::iterator easyfind(T x, int nb)
 {
-	typename T::iterator itr = x.begin();
-	itr = std::find(itr, x.end(), nb);
-	if (itr == x.end())
-		throw NoOccurence();
-	return (itr);
+	if (std::find(x.begin(), x.end(), nb) != x.end())
+		return (std::find(x.begin(), x.end(), nb));
+	throw NoOccurence();
 }
 
 #endif
