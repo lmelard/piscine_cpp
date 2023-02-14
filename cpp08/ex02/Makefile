@@ -13,7 +13,7 @@ NAME		:= stack
 
 SRC_DIR		:= srcs
 SRCS		:= main.cpp \
-			MutantStack.cpp \
+#			MutantStack.cpp \
 
 SRCS		:= $(addprefix $(SRC_DIR)/,$(SRCS))
 
